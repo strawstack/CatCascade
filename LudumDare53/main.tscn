@@ -1,60 +1,25 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://img/cell.png" type="Texture" id=1]
 [ext_resource path="res://tube.tscn" type="PackedScene" id=2]
 [ext_resource path="res://texture/water1.tres" type="Texture" id=3]
-[ext_resource path="res://img/water/right/water7.png" type="Texture" id=4]
-[ext_resource path="res://img/water/right/water5.png" type="Texture" id=5]
-[ext_resource path="res://img/water/right/water6.png" type="Texture" id=6]
-[ext_resource path="res://img/water/right/water3.png" type="Texture" id=7]
-[ext_resource path="res://img/water/right/water4.png" type="Texture" id=8]
-[ext_resource path="res://img/water/right/water8.png" type="Texture" id=9]
-[ext_resource path="res://img/water/right/water12.png" type="Texture" id=10]
-[ext_resource path="res://img/water/right/water14.png" type="Texture" id=11]
-[ext_resource path="res://img/water/right/water15.png" type="Texture" id=12]
-[ext_resource path="res://img/water/right/water9.png" type="Texture" id=13]
-[ext_resource path="res://img/water/right/water11.png" type="Texture" id=14]
-[ext_resource path="res://img/water/right/water10.png" type="Texture" id=15]
-[ext_resource path="res://img/water/right/water2.png" type="Texture" id=16]
-[ext_resource path="res://img/water/right/water13.png" type="Texture" id=17]
-[ext_resource path="res://img/water/right/water1.png" type="Texture" id=18]
+[ext_resource path="res://img/arrow.png" type="Texture" id=4]
+[ext_resource path="res://GameController.gd" type="Script" id=5]
 [ext_resource path="res://texture/water0.tres" type="Texture" id=19]
 [ext_resource path="res://texture/water2.tres" type="Texture" id=20]
 [ext_resource path="res://texture/water3.tres" type="Texture" id=21]
+[ext_resource path="res://img/places/burger.png" type="Texture" id=22]
+[ext_resource path="res://img/places/polish.png" type="Texture" id=23]
+[ext_resource path="res://img/places/groom.png" type="Texture" id=24]
+[ext_resource path="res://img/places/sushi.png" type="Texture" id=25]
+[ext_resource path="res://img/places/review.png" type="Texture" id=26]
+[ext_resource path="res://img/places/movie.png" type="Texture" id=27]
+[ext_resource path="res://img/numbers/3.png" type="Texture" id=28]
+[ext_resource path="res://img/numbers/4.png" type="Texture" id=29]
+[ext_resource path="res://img/numbers/1.png" type="Texture" id=30]
+[ext_resource path="res://img/numbers/2.png" type="Texture" id=31]
 
-[sub_resource type="AnimatedTexture" id=1]
-frames = 15
-frame_0/texture = ExtResource( 18 )
-frame_1/texture = ExtResource( 16 )
-frame_1/delay_sec = 0.0
-frame_2/texture = ExtResource( 7 )
-frame_2/delay_sec = 0.0
-frame_3/texture = ExtResource( 8 )
-frame_3/delay_sec = 0.0
-frame_4/texture = ExtResource( 5 )
-frame_4/delay_sec = 0.0
-frame_5/texture = ExtResource( 6 )
-frame_5/delay_sec = 0.0
-frame_6/texture = ExtResource( 4 )
-frame_6/delay_sec = 0.0
-frame_7/texture = ExtResource( 9 )
-frame_7/delay_sec = 0.0
-frame_8/texture = ExtResource( 13 )
-frame_8/delay_sec = 0.0
-frame_9/texture = ExtResource( 15 )
-frame_9/delay_sec = 0.0
-frame_10/texture = ExtResource( 14 )
-frame_10/delay_sec = 0.0
-frame_11/texture = ExtResource( 10 )
-frame_11/delay_sec = 0.0
-frame_12/texture = ExtResource( 17 )
-frame_12/delay_sec = 0.0
-frame_13/texture = ExtResource( 11 )
-frame_13/delay_sec = 0.0
-frame_14/texture = ExtResource( 12 )
-frame_14/delay_sec = 0.0
-
-[sub_resource type="TileSet" id=2]
+[sub_resource type="TileSet" id=1]
 0/name = "cell.png 0"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
@@ -69,22 +34,10 @@ frame_14/delay_sec = 0.0
 0/shape_one_way_margin = 0.0
 0/shapes = [  ]
 0/z_index = 0
-1/name = "water.tres 1"
-1/texture = ExtResource( 3 )
-1/tex_offset = Vector2( 0, 0 )
-1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 0, 0, 64, 64 )
-1/tile_mode = 0
-1/occluder_offset = Vector2( 0, 0 )
-1/navigation_offset = Vector2( 0, 0 )
-1/shape_offset = Vector2( 0, 0 )
-1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape_one_way = false
-1/shape_one_way_margin = 0.0
-1/shapes = [  ]
-1/z_index = 0
-2/name = "water1.tres 2"
-2/texture = SubResource( 1 )
+
+[sub_resource type="TileSet" id=2]
+2/name = "cell.png 2"
+2/texture = ExtResource( 1 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 0, 0, 64, 64 )
@@ -97,6 +50,62 @@ frame_14/delay_sec = 0.0
 2/shape_one_way_margin = 0.0
 2/shapes = [  ]
 2/z_index = 0
+5/name = "water2.tres 5"
+5/texture = ExtResource( 20 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 0, 0, 64, 64 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape_one_way = false
+5/shape_one_way_margin = 0.0
+5/shapes = [  ]
+5/z_index = 0
+6/name = "water3.tres 6"
+6/texture = ExtResource( 21 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 0, 0, 64, 64 )
+6/tile_mode = 0
+6/occluder_offset = Vector2( 0, 0 )
+6/navigation_offset = Vector2( 0, 0 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape_one_way = false
+6/shape_one_way_margin = 0.0
+6/shapes = [  ]
+6/z_index = 0
+7/name = "water0.tres 7"
+7/texture = ExtResource( 19 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 0, 0, 64, 64 )
+7/tile_mode = 0
+7/occluder_offset = Vector2( 0, 0 )
+7/navigation_offset = Vector2( 0, 0 )
+7/shape_offset = Vector2( 0, 0 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape_one_way = false
+7/shape_one_way_margin = 0.0
+7/shapes = [  ]
+7/z_index = 0
+8/name = "water1.tres 8"
+8/texture = ExtResource( 3 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 0, 0, 64, 64 )
+8/tile_mode = 0
+8/occluder_offset = Vector2( 0, 0 )
+8/navigation_offset = Vector2( 0, 0 )
+8/shape_offset = Vector2( 0, 0 )
+8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+8/shape_one_way = false
+8/shape_one_way_margin = 0.0
+8/shapes = [  ]
+8/z_index = 0
 
 [sub_resource type="TileSet" id=3]
 0/name = "cell.png 0"
@@ -113,106 +122,6 @@ frame_14/delay_sec = 0.0
 0/shape_one_way_margin = 0.0
 0/shapes = [  ]
 0/z_index = 0
-1/name = "water.tres 1"
-1/texture = ExtResource( 3 )
-1/tex_offset = Vector2( 0, 0 )
-1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 0, 0, 64, 64 )
-1/tile_mode = 0
-1/occluder_offset = Vector2( 0, 0 )
-1/navigation_offset = Vector2( 0, 0 )
-1/shape_offset = Vector2( 0, 0 )
-1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape_one_way = false
-1/shape_one_way_margin = 0.0
-1/shapes = [  ]
-1/z_index = 0
-2/name = "water1.tres 2"
-2/texture = SubResource( 1 )
-2/tex_offset = Vector2( 0, 0 )
-2/modulate = Color( 1, 1, 1, 1 )
-2/region = Rect2( 0, 0, 64, 64 )
-2/tile_mode = 0
-2/occluder_offset = Vector2( 0, 0 )
-2/navigation_offset = Vector2( 0, 0 )
-2/shape_offset = Vector2( 0, 0 )
-2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape_one_way = false
-2/shape_one_way_margin = 0.0
-2/shapes = [  ]
-2/z_index = 0
-
-[sub_resource type="TileSet" id=4]
-1/name = "water.tres 1"
-1/texture = ExtResource( 3 )
-1/tex_offset = Vector2( 0, 0 )
-1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 0, 0, 64, 64 )
-1/tile_mode = 0
-1/occluder_offset = Vector2( 0, 0 )
-1/navigation_offset = Vector2( 0, 0 )
-1/shape_offset = Vector2( 0, 0 )
-1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape_one_way = false
-1/shape_one_way_margin = 0.0
-1/shapes = [  ]
-1/z_index = 0
-2/name = "cell.png 2"
-2/texture = ExtResource( 1 )
-2/tex_offset = Vector2( 0, 0 )
-2/modulate = Color( 1, 1, 1, 1 )
-2/region = Rect2( 0, 0, 64, 64 )
-2/tile_mode = 0
-2/occluder_offset = Vector2( 0, 0 )
-2/navigation_offset = Vector2( 0, 0 )
-2/shape_offset = Vector2( 0, 0 )
-2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape_one_way = false
-2/shape_one_way_margin = 0.0
-2/shapes = [  ]
-2/z_index = 0
-3/name = "water0.tres 3"
-3/texture = ExtResource( 19 )
-3/tex_offset = Vector2( 0, 0 )
-3/modulate = Color( 1, 1, 1, 1 )
-3/region = Rect2( 0, 0, 64, 64 )
-3/tile_mode = 0
-3/occluder_offset = Vector2( 0, 0 )
-3/navigation_offset = Vector2( 0, 0 )
-3/shape_offset = Vector2( 0, 0 )
-3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-3/shape_one_way = false
-3/shape_one_way_margin = 0.0
-3/shapes = [  ]
-3/z_index = 0
-4/name = "water2.tres 4"
-4/texture = ExtResource( 20 )
-4/tex_offset = Vector2( 0, 0 )
-4/modulate = Color( 1, 1, 1, 1 )
-4/region = Rect2( 0, 0, 64, 64 )
-4/tile_mode = 0
-4/occluder_offset = Vector2( 0, 0 )
-4/navigation_offset = Vector2( 0, 0 )
-4/shape_offset = Vector2( 0, 0 )
-4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-4/shape_one_way = false
-4/shape_one_way_margin = 0.0
-4/shapes = [  ]
-4/z_index = 0
-5/name = "water3.tres 5"
-5/texture = ExtResource( 21 )
-5/tex_offset = Vector2( 0, 0 )
-5/modulate = Color( 1, 1, 1, 1 )
-5/region = Rect2( 0, 0, 64, 64 )
-5/tile_mode = 0
-5/occluder_offset = Vector2( 0, 0 )
-5/navigation_offset = Vector2( 0, 0 )
-5/shape_offset = Vector2( 0, 0 )
-5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-5/shape_one_way = false
-5/shape_one_way_margin = 0.0
-5/shapes = [  ]
-5/z_index = 0
 
 [sub_resource type="TileSet" id=5]
 0/name = "cell.png 0"
@@ -229,36 +138,8 @@ frame_14/delay_sec = 0.0
 0/shape_one_way_margin = 0.0
 0/shapes = [  ]
 0/z_index = 0
-1/name = "water.tres 1"
-1/texture = ExtResource( 3 )
-1/tex_offset = Vector2( 0, 0 )
-1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 0, 0, 64, 64 )
-1/tile_mode = 0
-1/occluder_offset = Vector2( 0, 0 )
-1/navigation_offset = Vector2( 0, 0 )
-1/shape_offset = Vector2( 0, 0 )
-1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape_one_way = false
-1/shape_one_way_margin = 0.0
-1/shapes = [  ]
-1/z_index = 0
-2/name = "water1.tres 2"
-2/texture = SubResource( 1 )
-2/tex_offset = Vector2( 0, 0 )
-2/modulate = Color( 1, 1, 1, 1 )
-2/region = Rect2( 0, 0, 64, 64 )
-2/tile_mode = 0
-2/occluder_offset = Vector2( 0, 0 )
-2/navigation_offset = Vector2( 0, 0 )
-2/shape_offset = Vector2( 0, 0 )
-2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape_one_way = false
-2/shape_one_way_margin = 0.0
-2/shapes = [  ]
-2/z_index = 0
 
-[sub_resource type="TileSet" id=6]
+[sub_resource type="TileSet" id=4]
 0/name = "cell.png 0"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
@@ -273,68 +154,268 @@ frame_14/delay_sec = 0.0
 0/shape_one_way_margin = 0.0
 0/shapes = [  ]
 0/z_index = 0
-1/name = "water.tres 1"
-1/texture = ExtResource( 3 )
-1/tex_offset = Vector2( 0, 0 )
-1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 0, 0, 64, 64 )
-1/tile_mode = 0
-1/occluder_offset = Vector2( 0, 0 )
-1/navigation_offset = Vector2( 0, 0 )
-1/shape_offset = Vector2( 0, 0 )
-1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape_one_way = false
-1/shape_one_way_margin = 0.0
-1/shapes = [  ]
-1/z_index = 0
-2/name = "water1.tres 2"
-2/texture = SubResource( 1 )
-2/tex_offset = Vector2( 0, 0 )
-2/modulate = Color( 1, 1, 1, 1 )
-2/region = Rect2( 0, 0, 64, 64 )
-2/tile_mode = 0
-2/occluder_offset = Vector2( 0, 0 )
-2/navigation_offset = Vector2( 0, 0 )
-2/shape_offset = Vector2( 0, 0 )
-2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape_one_way = false
-2/shape_one_way_margin = 0.0
-2/shapes = [  ]
-2/z_index = 0
 
 [node name="main" type="Node"]
+script = ExtResource( 5 )
 
 [node name="Grass" type="TileMap" parent="."]
 modulate = Color( 0.533333, 0.729412, 0.529412, 1 )
-tile_set = SubResource( 2 )
+tile_set = SubResource( 1 )
 format = 1
 tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 65554, 0, 0, 65555, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 131090, 0, 0, 131091, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 196625, 0, 0, 196626, 0, 0, 196627, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0, 262162, 0, 0, 262163, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 0, 0, 327697, 0, 0, 327698, 0, 0, 327699, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0, 589840, 0, 0, 589841, 0, 0, 589842, 0, 0, 589843, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0 )
 
+[node name="Water" type="TileMap" parent="."]
+modulate = Color( 0.592157, 0.768627, 0.807843, 1 )
+tile_set = SubResource( 2 )
+format = 1
+tile_data = PoolIntArray( 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 65537, 5, 0, 65538, 5, 0, 65539, 5, 0, 65540, 5, 0, 131073, 5, 0, 131074, 5, 0, 131075, 5, 0, 131076, 5, 0, 131078, 8, 0, 131079, 8, 0, 131080, 8, 0, 131081, 8, 0, 131082, 5, 0, 196609, 8, 0, 196610, 8, 0, 196611, 8, 0, 196612, 8, 0, 196613, 8, 0, 196618, 8, 0, 196619, 8, 0, 196621, 8, 0, 196622, 8, 0, 196623, 8, 0, 196624, 8, 0, 196625, 8, 0, 196626, 5, 0, 262150, 5, 0, 262154, 7, 0, 262156, 5, 0, 262162, 5, 0, 327680, 6, 0, 327681, 6, 0, 327682, 6, 0, 327683, 6, 0, 327686, 8, 0, 327688, 8, 0, 327689, 8, 0, 327690, 7, 0, 327692, 8, 0, 327694, 8, 0, 327695, 8, 0, 327696, 8, 0, 327697, 8, 0, 327698, 5, 0, 393219, 7, 0, 393223, 5, 0, 393229, 5, 0, 393234, 5, 0, 458755, 7, 0, 458756, 6, 0, 458758, 6, 0, 458759, 6, 0, 458760, 6, 0, 458761, 6, 0, 458762, 6, 0, 458764, 6, 0, 458765, 6, 0, 458766, 6, 0, 458767, 6, 0, 458768, 6, 0, 458770, 6, 0, 524291, 7, 0, 524293, 5, 0, 524295, 7, 0, 524299, 5, 0, 524302, 7, 0, 524305, 5, 0, 589827, 7, 0, 589829, 5, 0, 589831, 7, 0, 589835, 5, 0, 589838, 7, 0, 589840, 5, 0, 589841, 6, 0, 655363, 7, 0, 655364, 6, 0, 655365, 6, 0, 655366, 6, 0, 655368, 6, 0, 655369, 6, 0, 655370, 6, 0, 655371, 6, 0, 655374, 7, 0, 655375, 6, 0, 655376, 6, 0 )
+
 [node name="Menu" type="TileMap" parent="."]
-modulate = Color( 0.533333, 0.533333, 0.533333, 1 )
+visible = false
 tile_set = SubResource( 3 )
 format = 1
 tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0 )
 
-[node name="Water" type="TileMap" parent="."]
-modulate = Color( 0.607843, 0.780392, 0.819608, 1 )
-tile_set = SubResource( 4 )
+[node name="Shop" type="TileMap" parent="."]
+modulate = Color( 0.803922, 0.513726, 0.835294, 1 )
+tile_set = SubResource( 5 )
 format = 1
-tile_data = PoolIntArray( 65537, 4, 0, 65538, 4, 0, 65539, 4, 0, 65540, 4, 0, 131073, 4, 0, 131074, 4, 0, 131075, 4, 0, 131076, 4, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 131082, 4, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196618, 1, 0, 196619, 1, 0, 196621, 1, 0, 196622, 1, 0, 196623, 1, 0, 196624, 1, 0, 196625, 1, 0, 196626, 4, 0, 262150, 4, 0, 262154, 3, 0, 262156, 4, 0, 262162, 4, 0, 327680, 5, 0, 327681, 5, 0, 327682, 5, 0, 327683, 5, 0, 327686, 1, 0, 327688, 1, 0, 327689, 1, 0, 327690, 3, 0, 327692, 1, 0, 327694, 1, 0, 327695, 1, 0, 327696, 1, 0, 327697, 1, 0, 327698, 4, 0, 393219, 3, 0, 393223, 4, 0, 393229, 4, 0, 393234, 4, 0, 458755, 3, 0, 458756, 5, 0, 458758, 5, 0, 458759, 5, 0, 458760, 5, 0, 458761, 5, 0, 458762, 5, 0, 458764, 5, 0, 458765, 5, 0, 458766, 5, 0, 458767, 5, 0, 458768, 5, 0, 458770, 5, 0, 524291, 3, 0, 524293, 4, 0, 524295, 3, 0, 524299, 4, 0, 524302, 3, 0, 524305, 4, 0, 589827, 3, 0, 589829, 4, 0, 589831, 3, 0, 589835, 4, 0, 589838, 3, 0, 589840, 4, 0, 589841, 5, 0, 655363, 3, 0, 655364, 5, 0, 655365, 5, 0, 655366, 5, 0, 655368, 5, 0, 655369, 5, 0, 655370, 5, 0, 655371, 5, 0, 655374, 3, 0, 655375, 5, 0, 655376, 5, 0 )
+tile_data = PoolIntArray( 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 196616, 0, 0, 393217, 0, 0, 524297, 0, 0, 589826, 0, 0, 589842, 0, 0, 655362, 0, 0, 655377, 0, 0, 655378, 0, 0 )
 
 [node name="Turn" type="TileMap" parent="."]
+visible = false
 modulate = Color( 0.419608, 0.831373, 0.509804, 1 )
-tile_set = SubResource( 5 )
+tile_set = SubResource( 4 )
 format = 1
 tile_data = PoolIntArray( 196614, 0, 0, 196620, 0, 0, 327687, 0, 0, 327693, 0, 0, 458757, 0, 0, 458763, 0, 0, 458769, 0, 0, 655367, 0, 0 )
 
-[node name="Shop" type="TileMap" parent="."]
-modulate = Color( 0.803922, 0.513726, 0.835294, 1 )
-tile_set = SubResource( 6 )
-format = 1
-tile_data = PoolIntArray( 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 196616, 0, 0, 393217, 0, 0, 524297, 0, 0, 589826, 0, 0, 589842, 0, 0, 655362, 0, 0, 655377, 0, 0, 655378, 0, 0 )
+[node name="shops" type="Node2D" parent="."]
+
+[node name="groom" type="Sprite" parent="shops"]
+position = Vector2( 606.126, 543.058 )
+texture = ExtResource( 24 )
+
+[node name="movie" type="Sprite" parent="shops"]
+position = Vector2( 160.676, 639.275 )
+texture = ExtResource( 27 )
+
+[node name="polish" type="Sprite" parent="shops"]
+position = Vector2( 542.872, 222.334 )
+texture = ExtResource( 23 )
+
+[node name="review" type="Sprite" parent="shops"]
+position = Vector2( 94.7492, 418.332 )
+texture = ExtResource( 26 )
+
+[node name="sushi" type="Sprite" parent="shops"]
+position = Vector2( 1053.36, 162.643 )
+texture = ExtResource( 25 )
+
+[node name="burger" type="Sprite" parent="shops"]
+position = Vector2( 1150.47, 673.129 )
+texture = ExtResource( 22 )
 
 [node name="tubes" type="Node2D" parent="."]
 
 [node name="tube" parent="tubes" instance=ExtResource( 2 )]
-position = Vector2( 223.14, 158.655 )
+position = Vector2( 223.14, 159.655 )
+
+[node name="numbers" type="Node2D" parent="."]
+
+[node name="1" type="Sprite" parent="numbers"]
+position = Vector2( 96.379, 96.1099 )
+texture = ExtResource( 30 )
+
+[node name="2" type="Sprite" parent="numbers"]
+position = Vector2( 159.938, 95.6224 )
+texture = ExtResource( 31 )
+
+[node name="3" type="Sprite" parent="numbers"]
+position = Vector2( 224, 96.375 )
+texture = ExtResource( 28 )
+
+[node name="4" type="Sprite" parent="numbers"]
+position = Vector2( 288.375, 96.125 )
+texture = ExtResource( 29 )
+
+[node name="switches" type="Node2D" parent="."]
+modulate = Color( 0.592157, 0.768627, 0.807843, 1 )
+
+[node name="q-switch" type="Node2D" parent="switches"]
+position = Vector2( 416, 224 )
+
+[node name="up" type="Sprite" parent="switches/q-switch"]
+texture = ExtResource( 19 )
+
+[node name="right" type="Sprite" parent="switches/q-switch"]
+visible = false
+texture = ExtResource( 3 )
+
+[node name="down" type="Sprite" parent="switches/q-switch"]
+visible = false
+texture = ExtResource( 20 )
+
+[node name="left" type="Sprite" parent="switches/q-switch"]
+visible = false
+texture = ExtResource( 21 )
+
+[node name="w-switch" type="Node2D" parent="switches"]
+position = Vector2( 480, 352 )
+
+[node name="up" type="Sprite" parent="switches/w-switch"]
+texture = ExtResource( 19 )
+
+[node name="right" type="Sprite" parent="switches/w-switch"]
+visible = false
+texture = ExtResource( 3 )
+
+[node name="down" type="Sprite" parent="switches/w-switch"]
+visible = false
+texture = ExtResource( 20 )
+
+[node name="left" type="Sprite" parent="switches/w-switch"]
+visible = false
+texture = ExtResource( 21 )
+
+[node name="e-switch" type="Node2D" parent="switches"]
+position = Vector2( 800, 224 )
+
+[node name="up" type="Sprite" parent="switches/e-switch"]
+texture = ExtResource( 19 )
+
+[node name="right" type="Sprite" parent="switches/e-switch"]
+visible = false
+texture = ExtResource( 3 )
+
+[node name="down" type="Sprite" parent="switches/e-switch"]
+visible = false
+texture = ExtResource( 20 )
+
+[node name="left" type="Sprite" parent="switches/e-switch"]
+visible = false
+texture = ExtResource( 21 )
+
+[node name="r-switch" type="Node2D" parent="switches"]
+position = Vector2( 864, 352 )
+
+[node name="up" type="Sprite" parent="switches/r-switch"]
+texture = ExtResource( 19 )
+
+[node name="right" type="Sprite" parent="switches/r-switch"]
+visible = false
+texture = ExtResource( 3 )
+
+[node name="down" type="Sprite" parent="switches/r-switch"]
+visible = false
+texture = ExtResource( 20 )
+
+[node name="left" type="Sprite" parent="switches/r-switch"]
+visible = false
+texture = ExtResource( 21 )
+
+[node name="a-switch" type="Node2D" parent="switches"]
+position = Vector2( 352, 480 )
+
+[node name="up" type="Sprite" parent="switches/a-switch"]
+texture = ExtResource( 19 )
+
+[node name="right" type="Sprite" parent="switches/a-switch"]
+visible = false
+texture = ExtResource( 3 )
+
+[node name="down" type="Sprite" parent="switches/a-switch"]
+visible = false
+texture = ExtResource( 20 )
+
+[node name="left" type="Sprite" parent="switches/a-switch"]
+visible = false
+texture = ExtResource( 21 )
+
+[node name="s-switch" type="Node2D" parent="switches"]
+position = Vector2( 480, 672 )
+
+[node name="up" type="Sprite" parent="switches/s-switch"]
+texture = ExtResource( 19 )
+
+[node name="right" type="Sprite" parent="switches/s-switch"]
+visible = false
+texture = ExtResource( 3 )
+
+[node name="down" type="Sprite" parent="switches/s-switch"]
+visible = false
+texture = ExtResource( 20 )
+
+[node name="left" type="Sprite" parent="switches/s-switch"]
+visible = false
+texture = ExtResource( 21 )
+
+[node name="d-switch" type="Node2D" parent="switches"]
+position = Vector2( 736, 480 )
+
+[node name="up" type="Sprite" parent="switches/d-switch"]
+texture = ExtResource( 19 )
+
+[node name="right" type="Sprite" parent="switches/d-switch"]
+visible = false
+texture = ExtResource( 3 )
+
+[node name="down" type="Sprite" parent="switches/d-switch"]
+visible = false
+texture = ExtResource( 20 )
+
+[node name="left" type="Sprite" parent="switches/d-switch"]
+visible = false
+texture = ExtResource( 21 )
+
+[node name="f-switch" type="Node2D" parent="switches"]
+position = Vector2( 1120, 480 )
+
+[node name="up" type="Sprite" parent="switches/f-switch"]
+texture = ExtResource( 19 )
+
+[node name="right" type="Sprite" parent="switches/f-switch"]
+visible = false
+texture = ExtResource( 3 )
+
+[node name="down" type="Sprite" parent="switches/f-switch"]
+visible = false
+texture = ExtResource( 20 )
+
+[node name="left" type="Sprite" parent="switches/f-switch"]
+visible = false
+texture = ExtResource( 21 )
+
+[node name="arrows" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0.498039 )
+
+[node name="q-arrow" type="Sprite" parent="arrows"]
+position = Vector2( 416.205, 224.139 )
+texture = ExtResource( 4 )
+
+[node name="w-arrow" type="Sprite" parent="arrows"]
+position = Vector2( 479.625, 351.977 )
+texture = ExtResource( 4 )
+
+[node name="e-arrow" type="Sprite" parent="arrows"]
+position = Vector2( 800.241, 223.99 )
+texture = ExtResource( 4 )
+
+[node name="r-arrow" type="Sprite" parent="arrows"]
+position = Vector2( 863.519, 351.958 )
+texture = ExtResource( 4 )
+
+[node name="a-arrow" type="Sprite" parent="arrows"]
+position = Vector2( 351.79, 480.253 )
+texture = ExtResource( 4 )
+
+[node name="s-arrow" type="Sprite" parent="arrows"]
+position = Vector2( 480.797, 672.203 )
+texture = ExtResource( 4 )
+
+[node name="d-arrow" type="Sprite" parent="arrows"]
+position = Vector2( 735.576, 480.125 )
+texture = ExtResource( 4 )
+
+[node name="f-arrow" type="Sprite" parent="arrows"]
+position = Vector2( 1120.2, 480.303 )
+texture = ExtResource( 4 )

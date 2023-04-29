@@ -1,78 +1,49 @@
 [gd_resource type="AnimatedTexture" load_steps=16 format=2]
 
-[sub_resource type="StreamTexture" id=1]
-load_path = "res://.import/water1.png-31e061a4051de62239c0f7d9ec635820.stex"
-
-[sub_resource type="StreamTexture" id=2]
-load_path = "res://.import/water2.png-8cf52b931fae2382b169cfeead87779d.stex"
-
-[sub_resource type="StreamTexture" id=3]
-load_path = "res://.import/water11.png-d2f9692f0bfc09e3d0e5085c198fa562.stex"
-
-[sub_resource type="StreamTexture" id=4]
-load_path = "res://.import/water12.png-a17e5e6c3126b320aacb1584b786a07e.stex"
-
-[sub_resource type="StreamTexture" id=5]
-load_path = "res://.import/water13.png-ca8166adb189db290c74ce108e061e7a.stex"
-
-[sub_resource type="StreamTexture" id=6]
-load_path = "res://.import/water14.png-f8e9acc964aa219e63932dd8cfe7a624.stex"
-
-[sub_resource type="StreamTexture" id=7]
-load_path = "res://.import/water15.png-f09c254c547a5e6b0b05b6156b03a30d.stex"
-
-[sub_resource type="StreamTexture" id=8]
-load_path = "res://.import/water3.png-fa3ceb87a3ed3f323c09de15cf53bd17.stex"
-
-[sub_resource type="StreamTexture" id=9]
-load_path = "res://.import/water4.png-aa90309f0979cd2dad4c4b1d345c54b4.stex"
-
-[sub_resource type="StreamTexture" id=10]
-load_path = "res://.import/water5.png-fb6b5165f9b199ca4988ef545c0c1b5c.stex"
-
-[sub_resource type="StreamTexture" id=11]
-load_path = "res://.import/water6.png-de29f2309d929b8e92966fd67ed782de.stex"
-
-[sub_resource type="StreamTexture" id=12]
-load_path = "res://.import/water7.png-347ed5f86495722251a479f309fc757d.stex"
-
-[sub_resource type="StreamTexture" id=13]
-load_path = "res://.import/water8.png-2230b7b94ebbe4a966e19d35229eb474.stex"
-
-[sub_resource type="StreamTexture" id=14]
-load_path = "res://.import/water9.png-c505e5a3fbbccfc4bd7c8a403278612d.stex"
-
-[sub_resource type="StreamTexture" id=15]
-load_path = "res://.import/water10.png-318a2ff1c391dd3462b1a3cc211eb9b2.stex"
+[ext_resource path="res://img/water/right/water5.png" type="Texture" id=1]
+[ext_resource path="res://img/water/right/water9.png" type="Texture" id=2]
+[ext_resource path="res://img/water/right/water1.png" type="Texture" id=3]
+[ext_resource path="res://img/water/right/water7.png" type="Texture" id=4]
+[ext_resource path="res://img/water/right/water13.png" type="Texture" id=5]
+[ext_resource path="res://img/water/right/water15.png" type="Texture" id=6]
+[ext_resource path="res://img/water/right/water8.png" type="Texture" id=7]
+[ext_resource path="res://img/water/right/water4.png" type="Texture" id=8]
+[ext_resource path="res://img/water/right/water2.png" type="Texture" id=9]
+[ext_resource path="res://img/water/right/water14.png" type="Texture" id=10]
+[ext_resource path="res://img/water/right/water11.png" type="Texture" id=11]
+[ext_resource path="res://img/water/right/water6.png" type="Texture" id=12]
+[ext_resource path="res://img/water/right/water12.png" type="Texture" id=13]
+[ext_resource path="res://img/water/right/water10.png" type="Texture" id=14]
+[ext_resource path="res://img/water/right/water3.png" type="Texture" id=15]
 
 [resource]
 frames = 15
-frame_0/texture = SubResource( 1 )
-frame_1/texture = SubResource( 2 )
+frame_0/texture = ExtResource( 3 )
+frame_1/texture = ExtResource( 9 )
 frame_1/delay_sec = 0.0
-frame_2/texture = SubResource( 8 )
+frame_2/texture = ExtResource( 15 )
 frame_2/delay_sec = 0.0
-frame_3/texture = SubResource( 9 )
+frame_3/texture = ExtResource( 8 )
 frame_3/delay_sec = 0.0
-frame_4/texture = SubResource( 10 )
+frame_4/texture = ExtResource( 1 )
 frame_4/delay_sec = 0.0
-frame_5/texture = SubResource( 11 )
+frame_5/texture = ExtResource( 12 )
 frame_5/delay_sec = 0.0
-frame_6/texture = SubResource( 12 )
+frame_6/texture = ExtResource( 4 )
 frame_6/delay_sec = 0.0
-frame_7/texture = SubResource( 13 )
+frame_7/texture = ExtResource( 7 )
 frame_7/delay_sec = 0.0
-frame_8/texture = SubResource( 14 )
+frame_8/texture = ExtResource( 2 )
 frame_8/delay_sec = 0.0
-frame_9/texture = SubResource( 15 )
+frame_9/texture = ExtResource( 14 )
 frame_9/delay_sec = 0.0
-frame_10/texture = SubResource( 3 )
+frame_10/texture = ExtResource( 11 )
 frame_10/delay_sec = 0.0
-frame_11/texture = SubResource( 4 )
+frame_11/texture = ExtResource( 13 )
 frame_11/delay_sec = 0.0
-frame_12/texture = SubResource( 5 )
+frame_12/texture = ExtResource( 5 )
 frame_12/delay_sec = 0.0
-frame_13/texture = SubResource( 6 )
+frame_13/texture = ExtResource( 10 )
 frame_13/delay_sec = 0.0
-frame_14/texture = SubResource( 7 )
+frame_14/texture = ExtResource( 6 )
 frame_14/delay_sec = 0.0
