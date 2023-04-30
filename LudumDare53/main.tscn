@@ -215,11 +215,6 @@ texture = ExtResource( 25 )
 position = Vector2( 1150.47, 673.129 )
 texture = ExtResource( 22 )
 
-[node name="tubes" type="Node2D" parent="."]
-
-[node name="tube" parent="tubes" instance=ExtResource( 2 )]
-position = Vector2( 223.14, 159.655 )
-
 [node name="numbers" type="Node2D" parent="."]
 
 [node name="1" type="Sprite" parent="numbers"]
@@ -241,181 +236,186 @@ texture = ExtResource( 29 )
 [node name="switches" type="Node2D" parent="."]
 modulate = Color( 0.592157, 0.768627, 0.807843, 1 )
 
-[node name="q-switch" type="Node2D" parent="switches"]
+[node name="qSwitch" type="Node2D" parent="switches"]
 position = Vector2( 416, 224 )
 
-[node name="up" type="Sprite" parent="switches/q-switch"]
+[node name="up" type="Sprite" parent="switches/qSwitch"]
 texture = ExtResource( 19 )
 
-[node name="right" type="Sprite" parent="switches/q-switch"]
+[node name="right" type="Sprite" parent="switches/qSwitch"]
 visible = false
 texture = ExtResource( 3 )
 
-[node name="down" type="Sprite" parent="switches/q-switch"]
+[node name="down" type="Sprite" parent="switches/qSwitch"]
 visible = false
 texture = ExtResource( 20 )
 
-[node name="left" type="Sprite" parent="switches/q-switch"]
+[node name="left" type="Sprite" parent="switches/qSwitch"]
 visible = false
 texture = ExtResource( 21 )
 
-[node name="w-switch" type="Node2D" parent="switches"]
+[node name="wSwitch" type="Node2D" parent="switches"]
 position = Vector2( 480, 352 )
 
-[node name="up" type="Sprite" parent="switches/w-switch"]
+[node name="up" type="Sprite" parent="switches/wSwitch"]
 texture = ExtResource( 19 )
 
-[node name="right" type="Sprite" parent="switches/w-switch"]
+[node name="right" type="Sprite" parent="switches/wSwitch"]
 visible = false
 texture = ExtResource( 3 )
 
-[node name="down" type="Sprite" parent="switches/w-switch"]
+[node name="down" type="Sprite" parent="switches/wSwitch"]
 visible = false
 texture = ExtResource( 20 )
 
-[node name="left" type="Sprite" parent="switches/w-switch"]
+[node name="left" type="Sprite" parent="switches/wSwitch"]
 visible = false
 texture = ExtResource( 21 )
 
-[node name="e-switch" type="Node2D" parent="switches"]
+[node name="eSwitch" type="Node2D" parent="switches"]
 position = Vector2( 800, 224 )
 
-[node name="up" type="Sprite" parent="switches/e-switch"]
+[node name="up" type="Sprite" parent="switches/eSwitch"]
 texture = ExtResource( 19 )
 
-[node name="right" type="Sprite" parent="switches/e-switch"]
+[node name="right" type="Sprite" parent="switches/eSwitch"]
 visible = false
 texture = ExtResource( 3 )
 
-[node name="down" type="Sprite" parent="switches/e-switch"]
+[node name="down" type="Sprite" parent="switches/eSwitch"]
 visible = false
 texture = ExtResource( 20 )
 
-[node name="left" type="Sprite" parent="switches/e-switch"]
+[node name="left" type="Sprite" parent="switches/eSwitch"]
 visible = false
 texture = ExtResource( 21 )
 
-[node name="r-switch" type="Node2D" parent="switches"]
+[node name="rSwitch" type="Node2D" parent="switches"]
 position = Vector2( 864, 352 )
 
-[node name="up" type="Sprite" parent="switches/r-switch"]
+[node name="up" type="Sprite" parent="switches/rSwitch"]
 texture = ExtResource( 19 )
 
-[node name="right" type="Sprite" parent="switches/r-switch"]
+[node name="right" type="Sprite" parent="switches/rSwitch"]
 visible = false
 texture = ExtResource( 3 )
 
-[node name="down" type="Sprite" parent="switches/r-switch"]
+[node name="down" type="Sprite" parent="switches/rSwitch"]
 visible = false
 texture = ExtResource( 20 )
 
-[node name="left" type="Sprite" parent="switches/r-switch"]
+[node name="left" type="Sprite" parent="switches/rSwitch"]
 visible = false
 texture = ExtResource( 21 )
 
-[node name="a-switch" type="Node2D" parent="switches"]
+[node name="aSwitch" type="Node2D" parent="switches"]
 position = Vector2( 352, 480 )
 
-[node name="up" type="Sprite" parent="switches/a-switch"]
+[node name="up" type="Sprite" parent="switches/aSwitch"]
 texture = ExtResource( 19 )
 
-[node name="right" type="Sprite" parent="switches/a-switch"]
+[node name="right" type="Sprite" parent="switches/aSwitch"]
 visible = false
 texture = ExtResource( 3 )
 
-[node name="down" type="Sprite" parent="switches/a-switch"]
+[node name="down" type="Sprite" parent="switches/aSwitch"]
 visible = false
 texture = ExtResource( 20 )
 
-[node name="left" type="Sprite" parent="switches/a-switch"]
+[node name="left" type="Sprite" parent="switches/aSwitch"]
 visible = false
 texture = ExtResource( 21 )
 
-[node name="s-switch" type="Node2D" parent="switches"]
+[node name="sSwitch" type="Node2D" parent="switches"]
 position = Vector2( 480, 672 )
 
-[node name="up" type="Sprite" parent="switches/s-switch"]
+[node name="up" type="Sprite" parent="switches/sSwitch"]
 texture = ExtResource( 19 )
 
-[node name="right" type="Sprite" parent="switches/s-switch"]
+[node name="right" type="Sprite" parent="switches/sSwitch"]
 visible = false
 texture = ExtResource( 3 )
 
-[node name="down" type="Sprite" parent="switches/s-switch"]
+[node name="down" type="Sprite" parent="switches/sSwitch"]
 visible = false
 texture = ExtResource( 20 )
 
-[node name="left" type="Sprite" parent="switches/s-switch"]
+[node name="left" type="Sprite" parent="switches/sSwitch"]
 visible = false
 texture = ExtResource( 21 )
 
-[node name="d-switch" type="Node2D" parent="switches"]
+[node name="dSwitch" type="Node2D" parent="switches"]
 position = Vector2( 736, 480 )
 
-[node name="up" type="Sprite" parent="switches/d-switch"]
+[node name="up" type="Sprite" parent="switches/dSwitch"]
 texture = ExtResource( 19 )
 
-[node name="right" type="Sprite" parent="switches/d-switch"]
+[node name="right" type="Sprite" parent="switches/dSwitch"]
 visible = false
 texture = ExtResource( 3 )
 
-[node name="down" type="Sprite" parent="switches/d-switch"]
+[node name="down" type="Sprite" parent="switches/dSwitch"]
 visible = false
 texture = ExtResource( 20 )
 
-[node name="left" type="Sprite" parent="switches/d-switch"]
+[node name="left" type="Sprite" parent="switches/dSwitch"]
 visible = false
 texture = ExtResource( 21 )
 
-[node name="f-switch" type="Node2D" parent="switches"]
+[node name="fSwitch" type="Node2D" parent="switches"]
 position = Vector2( 1120, 480 )
 
-[node name="up" type="Sprite" parent="switches/f-switch"]
+[node name="up" type="Sprite" parent="switches/fSwitch"]
 texture = ExtResource( 19 )
 
-[node name="right" type="Sprite" parent="switches/f-switch"]
+[node name="right" type="Sprite" parent="switches/fSwitch"]
 visible = false
 texture = ExtResource( 3 )
 
-[node name="down" type="Sprite" parent="switches/f-switch"]
+[node name="down" type="Sprite" parent="switches/fSwitch"]
 visible = false
 texture = ExtResource( 20 )
 
-[node name="left" type="Sprite" parent="switches/f-switch"]
+[node name="left" type="Sprite" parent="switches/fSwitch"]
 visible = false
 texture = ExtResource( 21 )
+
+[node name="tubes" type="Node2D" parent="."]
+
+[node name="tube" parent="tubes" instance=ExtResource( 2 )]
+position = Vector2( 223.14, 159.655 )
 
 [node name="arrows" type="Node2D" parent="."]
 modulate = Color( 1, 1, 1, 0.498039 )
 
-[node name="q-arrow" type="Sprite" parent="arrows"]
+[node name="qArrow" type="Sprite" parent="arrows"]
 position = Vector2( 416.205, 224.139 )
 texture = ExtResource( 4 )
 
-[node name="w-arrow" type="Sprite" parent="arrows"]
+[node name="wArrow" type="Sprite" parent="arrows"]
 position = Vector2( 479.625, 351.977 )
 texture = ExtResource( 4 )
 
-[node name="e-arrow" type="Sprite" parent="arrows"]
+[node name="eArrow" type="Sprite" parent="arrows"]
 position = Vector2( 800.241, 223.99 )
 texture = ExtResource( 4 )
 
-[node name="r-arrow" type="Sprite" parent="arrows"]
+[node name="rArrow" type="Sprite" parent="arrows"]
 position = Vector2( 863.519, 351.958 )
 texture = ExtResource( 4 )
 
-[node name="a-arrow" type="Sprite" parent="arrows"]
+[node name="aArrow" type="Sprite" parent="arrows"]
 position = Vector2( 351.79, 480.253 )
 texture = ExtResource( 4 )
 
-[node name="s-arrow" type="Sprite" parent="arrows"]
+[node name="sArrow" type="Sprite" parent="arrows"]
 position = Vector2( 480.797, 672.203 )
 texture = ExtResource( 4 )
 
-[node name="d-arrow" type="Sprite" parent="arrows"]
+[node name="dArrow" type="Sprite" parent="arrows"]
 position = Vector2( 735.576, 480.125 )
 texture = ExtResource( 4 )
 
-[node name="f-arrow" type="Sprite" parent="arrows"]
+[node name="fArrow" type="Sprite" parent="arrows"]
 position = Vector2( 1120.2, 480.303 )
 texture = ExtResource( 4 )
