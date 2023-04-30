@@ -1,7 +1,6 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://img/cell.png" type="Texture" id=1]
-[ext_resource path="res://tube.tscn" type="PackedScene" id=2]
 [ext_resource path="res://texture/water1.tres" type="Texture" id=3]
 [ext_resource path="res://img/arrow.png" type="Texture" id=4]
 [ext_resource path="res://GameController.gd" type="Script" id=5]
@@ -157,10 +156,6 @@
 
 [node name="main" type="Node"]
 script = ExtResource( 5 )
-
-[node name="tubeTimer" type="Timer" parent="."]
-wait_time = 4.0
-one_shot = true
 
 [node name="Grass" type="TileMap" parent="."]
 modulate = Color( 0.533333, 0.729412, 0.529412, 1 )
@@ -384,10 +379,21 @@ texture = ExtResource( 20 )
 visible = false
 texture = ExtResource( 21 )
 
-[node name="tubes" type="Node2D" parent="."]
+[node name="tubeSpawn" type="Node2D" parent="."]
 
-[node name="tube" parent="tubes" instance=ExtResource( 2 )]
-position = Vector2( 223.14, 159.655 )
+[node name="one" type="Node2D" parent="tubeSpawn"]
+position = Vector2( 96, 32 )
+
+[node name="two" type="Node2D" parent="tubeSpawn"]
+position = Vector2( 160, 32 )
+
+[node name="three" type="Node2D" parent="tubeSpawn"]
+position = Vector2( 224, 32 )
+
+[node name="four" type="Node2D" parent="tubeSpawn"]
+position = Vector2( 288, 32 )
+
+[node name="tubes" type="Node2D" parent="."]
 
 [node name="arrows" type="Node2D" parent="."]
 modulate = Color( 1, 1, 1, 0.498039 )
@@ -426,4 +432,3 @@ texture = ExtResource( 4 )
 
 [node name="endMarker" type="Node2D" parent="."]
 position = Vector2( -32, 352 )
-[connection signal="timeout" from="tubeTimer" to="." method="_on_tubeTimer_timeout"]

@@ -1,5 +1,7 @@
 extends Node
 
+var tubeScene = load("res://tube.tscn")
+
 var waterTileNumToFacingLookup = {
 	7: Vector2(0, -1),
 	8: Vector2(1, 0),
@@ -56,11 +58,20 @@ var switchRot = {
 	"f": [180, 270],
 }
 
+var tubeSpawnLocations = []
+
 # starting from endMarker tile contains pointers to previous tiles
 # {tileVecHash: [tileVec, ...]}
 var tileLinkList = {}
 
+var rng = RandomNumberGenerator.new()
+
+var tubeLocations = {}
+
+var tubeTweenCount = 0
+
 func _ready():
+	rng.randomize()
 	
 	calculateTubeFlow()
 	
@@ -89,7 +100,15 @@ func _ready():
 		switches[switchKey].set_rotation_degrees(newDegrees)
 		arrows[switchKey].set_rotation_degrees(newDegrees)
 	
-	$tubeTimer.start()
+	tubeSpawnLocations.append($tubeSpawn/one)
+	tubeSpawnLocations.append($tubeSpawn/two)
+	tubeSpawnLocations.append($tubeSpawn/three)
+	tubeSpawnLocations.append($tubeSpawn/four)
+	
+	spawnTube(2)
+	spawnTube(3)
+	
+	tubeMove()
 
 func _process(_delta):
 	
@@ -138,12 +157,25 @@ func toggle(switchKey):
 func hashTile(tilePos):
 	return str(tilePos.x) + ":" + str(tilePos.y)
 
+func unHashTile(tileHash):
+	var lst = tileHash.split(":")
+	var x = int(lst[0])
+	var y = int(lst[1])
+	return Vector2(x, y)
+
 func posToTile(pos):
 	var tilePos = Vector2(
 		(pos.x - 32) / 64, 
 		(pos.y - 32) / 64
 	)
 	return tilePos
+
+func tileToPos(tileVec):
+	var pos = Vector2(
+		tileVec.x * 64 + 32, 
+		tileVec.y * 64 + 32
+	)
+	return pos
 
 # Populates tileLinkList for later use routing the tubes
 func calculateTubeFlow():
@@ -196,14 +228,23 @@ func dfsReverseOrder(endCell):
 	
 	return tileLinkList
 
-func _on_tubeTimer_timeout():
-	
-	# Run the algo (for each tile in order call the next tube forward)
-	# Animate potential tubes to the next cell
-	# The timer should run in time with animation (tween) completes
-	
-	# Each tube has a tween
-	# Each tube should be able to animate itself from origin to destination
-	
-	# Call timer again after the algo and animations are triggered
-	$tubeTimer.start()
+func spawnTube(place):
+	var spawnVec = tubeSpawnLocations[place - 1].position
+	var spawnTileVec = posToTile(spawnVec)
+	var spawnTileVecHash = hashTile(spawnTileVec)
+	var tubeInstance = tubeScene.instance()
+	tubeLocations[spawnTileVecHash] = tubeInstance
+	tubeInstance.set_position(spawnVec)
+	$tubes.add_child(tubeInstance)
+
+func tubeMove():
+	pass
+
+func shuffleList(list):
+	var shuffledList = [] 
+	var indexList = range(list.size())
+	for i in range(list.size()):
+		var x = rng.randi() % indexList.size()
+		shuffledList.append(list[indexList[x]])
+		indexList.remove(x)
+	return shuffledList
