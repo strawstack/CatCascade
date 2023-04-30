@@ -158,6 +158,10 @@
 [node name="main" type="Node"]
 script = ExtResource( 5 )
 
+[node name="tubeTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
 [node name="Grass" type="TileMap" parent="."]
 modulate = Color( 0.533333, 0.729412, 0.529412, 1 )
 tile_set = SubResource( 1 )
@@ -218,19 +222,19 @@ texture = ExtResource( 22 )
 [node name="numbers" type="Node2D" parent="."]
 
 [node name="1" type="Sprite" parent="numbers"]
-position = Vector2( 96.379, 96.1099 )
+position = Vector2( 96, 96 )
 texture = ExtResource( 30 )
 
 [node name="2" type="Sprite" parent="numbers"]
-position = Vector2( 159.938, 95.6224 )
+position = Vector2( 160, 96 )
 texture = ExtResource( 31 )
 
 [node name="3" type="Sprite" parent="numbers"]
-position = Vector2( 224, 96.375 )
+position = Vector2( 224, 96 )
 texture = ExtResource( 28 )
 
 [node name="4" type="Sprite" parent="numbers"]
-position = Vector2( 288.375, 96.125 )
+position = Vector2( 288, 96 )
 texture = ExtResource( 29 )
 
 [node name="switches" type="Node2D" parent="."]
@@ -422,3 +426,4 @@ texture = ExtResource( 4 )
 
 [node name="endMarker" type="Node2D" parent="."]
 position = Vector2( -32, 352 )
+[connection signal="timeout" from="tubeTimer" to="." method="_on_tubeTimer_timeout"]

@@ -88,6 +88,8 @@ func _ready():
 		var newDegrees = switchRot[switchKey][switchState[switchKey]]
 		switches[switchKey].set_rotation_degrees(newDegrees)
 		arrows[switchKey].set_rotation_degrees(newDegrees)
+	
+	$tubeTimer.start()
 
 func _process(_delta):
 	
@@ -194,5 +196,14 @@ func dfsReverseOrder(endCell):
 	
 	return tileLinkList
 
-
-# end
+func _on_tubeTimer_timeout():
+	
+	# Run the algo (for each tile in order call the next tube forward)
+	# Animate potential tubes to the next cell
+	# The timer should run in time with animation (tween) completes
+	
+	# Each tube has a tween
+	# Each tube should be able to animate itself from origin to destination
+	
+	# Call timer again after the algo and animations are triggered
+	$tubeTimer.start()
