@@ -179,7 +179,7 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 modulate = Color( 0.803922, 0.513726, 0.835294, 1 )
 tile_set = SubResource( 4 )
 format = 1
-tile_data = PoolIntArray( 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 131086, 0, 0, 131088, 0, 0, 196616, 0, 0, 393217, 0, 0, 524297, 0, 0, 589825, 0, 0, 589826, 0, 0, 589842, 0, 0, 655361, 0, 0, 655362, 0, 0, 655377, 0, 0, 655378, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720912, 0, 0, 720913, 0, 0 )
+tile_data = PoolIntArray( 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 131086, 0, 0, 131088, 0, 0, 196616, 0, 0, 393217, 0, 0, 589825, 0, 0, 589826, 0, 0, 589842, 0, 0, 655361, 0, 0, 655362, 0, 0, 655377, 0, 0, 655378, 0, 0, 720912, 0, 0, 720913, 0, 0 )
 
 [node name="Switch" type="TileMap" parent="."]
 visible = false
@@ -191,11 +191,11 @@ tile_data = PoolIntArray( 196614, 0, 0, 196620, 0, 0, 327687, 0, 0, 327693, 0, 0
 [node name="shops" type="Node2D" parent="."]
 
 [node name="groom" type="Sprite" parent="shops"]
-position = Vector2( 606.126, 543.058 )
+position = Vector2( 608, 544 )
 texture = ExtResource( 24 )
 
 [node name="movie" type="Sprite" parent="shops"]
-position = Vector2( 160.676, 639.275 )
+position = Vector2( 160, 672 )
 texture = ExtResource( 27 )
 
 [node name="wash" type="Sprite" parent="shops"]
