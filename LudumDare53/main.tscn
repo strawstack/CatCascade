@@ -1,6 +1,7 @@
 [gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://img/cell.png" type="Texture" id=1]
+[ext_resource path="res://texture/wash.tres" type="Texture" id=2]
 [ext_resource path="res://texture/water1.tres" type="Texture" id=3]
 [ext_resource path="res://img/arrow.png" type="Texture" id=4]
 [ext_resource path="res://GameController.gd" type="Script" id=5]
@@ -8,7 +9,6 @@
 [ext_resource path="res://texture/water2.tres" type="Texture" id=20]
 [ext_resource path="res://texture/water3.tres" type="Texture" id=21]
 [ext_resource path="res://img/places/burger.png" type="Texture" id=22]
-[ext_resource path="res://img/places/polish.png" type="Texture" id=23]
 [ext_resource path="res://img/places/groom.png" type="Texture" id=24]
 [ext_resource path="res://img/places/sushi.png" type="Texture" id=25]
 [ext_resource path="res://img/places/review.png" type="Texture" id=26]
@@ -122,7 +122,7 @@
 0/shapes = [  ]
 0/z_index = 0
 
-[sub_resource type="TileSet" id=5]
+[sub_resource type="TileSet" id=4]
 0/name = "cell.png 0"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
@@ -138,7 +138,7 @@
 0/shapes = [  ]
 0/z_index = 0
 
-[sub_resource type="TileSet" id=4]
+[sub_resource type="TileSet" id=5]
 0/name = "cell.png 0"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
@@ -177,14 +177,14 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 
 [node name="Shop" type="TileMap" parent="."]
 modulate = Color( 0.803922, 0.513726, 0.835294, 1 )
-tile_set = SubResource( 5 )
+tile_set = SubResource( 4 )
 format = 1
-tile_data = PoolIntArray( 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 196616, 0, 0, 393217, 0, 0, 524297, 0, 0, 589826, 0, 0, 589842, 0, 0, 655362, 0, 0, 655377, 0, 0, 655378, 0, 0 )
+tile_data = PoolIntArray( 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 131086, 0, 0, 131088, 0, 0, 196616, 0, 0, 393217, 0, 0, 524297, 0, 0, 589825, 0, 0, 589826, 0, 0, 589842, 0, 0, 655361, 0, 0, 655362, 0, 0, 655377, 0, 0, 655378, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720912, 0, 0, 720913, 0, 0 )
 
 [node name="Switch" type="TileMap" parent="."]
 visible = false
 modulate = Color( 0.419608, 0.831373, 0.509804, 1 )
-tile_set = SubResource( 4 )
+tile_set = SubResource( 5 )
 format = 1
 tile_data = PoolIntArray( 196614, 0, 0, 196620, 0, 0, 327687, 0, 0, 327693, 0, 0, 458757, 0, 0, 458763, 0, 0, 458769, 0, 0, 655367, 0, 0 )
 
@@ -198,20 +198,20 @@ texture = ExtResource( 24 )
 position = Vector2( 160.676, 639.275 )
 texture = ExtResource( 27 )
 
-[node name="polish" type="Sprite" parent="shops"]
-position = Vector2( 542.872, 222.334 )
-texture = ExtResource( 23 )
+[node name="wash" type="Sprite" parent="shops"]
+position = Vector2( 544, 160 )
+texture = ExtResource( 2 )
 
 [node name="review" type="Sprite" parent="shops"]
 position = Vector2( 94.7492, 418.332 )
 texture = ExtResource( 26 )
 
 [node name="sushi" type="Sprite" parent="shops"]
-position = Vector2( 1053.36, 162.643 )
+position = Vector2( 1024, 128 )
 texture = ExtResource( 25 )
 
 [node name="burger" type="Sprite" parent="shops"]
-position = Vector2( 1150.47, 673.129 )
+position = Vector2( 1120, 672 )
 texture = ExtResource( 22 )
 
 [node name="numbers" type="Node2D" parent="."]
