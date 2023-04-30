@@ -432,3 +432,7 @@ texture = ExtResource( 4 )
 
 [node name="endMarker" type="Node2D" parent="."]
 position = Vector2( -32, 352 )
+
+[node name="debugSpawn" type="Timer" parent="."]
+wait_time = 48.0
+[connection signal="timeout" from="debugSpawn" to="." method="_on_debugSpawn_timeout"]

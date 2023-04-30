@@ -3,10 +3,10 @@ extends Node
 var tubeScene = load("res://tube.tscn")
 
 var waterTileNumToFacingLookup = {
-	7: Vector2(0, -1),
-	8: Vector2(1, 0),
-	5: Vector2(0, 1),
-	6: Vector2(-1, 0),
+	7: Vector2(0, -1), # up
+	8: Vector2(1, 0),  # right
+	5: Vector2(0, 1),  # down
+	6: Vector2(-1, 0), # left
 }
 
 var switchState = {
@@ -58,6 +58,8 @@ var switchRot = {
 	"f": [180, 270],
 }
 
+var tileVecHashToSwitchLetter = {}
+
 var tubeSpawnLocations = []
 
 # starting from endMarker tile contains pointers to previous tiles
@@ -85,6 +87,10 @@ func _ready():
 	switches["d"] = $switches/dSwitch
 	switches["f"] = $switches/fSwitch
 
+	for s in switches:
+		var switchTileVecHash = hashTile(posToTile(switches[s].position))
+		tileVecHashToSwitchLetter[switchTileVecHash] = switches[s]
+
 	arrows["q"] = $arrows/qArrow
 	arrows["w"] = $arrows/wArrow
 	arrows["e"] = $arrows/eArrow
@@ -109,6 +115,7 @@ func _ready():
 	spawnTube(3)
 	
 	tubeMove()
+	$debugSpawn.start()
 
 func _process(_delta):
 	
@@ -233,18 +240,83 @@ func spawnTube(place):
 	var spawnTileVec = posToTile(spawnVec)
 	var spawnTileVecHash = hashTile(spawnTileVec)
 	var tubeInstance = tubeScene.instance()
+	tubeInstance.get_node("Tween").connect("tween_all_completed", self, "_tube_tween_completed")
 	tubeLocations[spawnTileVecHash] = tubeInstance
 	tubeInstance.set_position(spawnVec)
 	$tubes.add_child(tubeInstance)
 
+func getWaterFacingDir(tileVec):
+	var lookup = [
+		Vector2(0, -1), # up
+		Vector2(1, 0),  # right
+		Vector2(0, 1),  # down
+		Vector2(-1, 0), # left
+	]
+	var tileVecHash = hashTile(tileVec)
+	var tileNumber = $Water.get_cellv(tileVec)
+	if tileNumber == -1: # It's a switch
+		var deg = floor(tileVecHashToSwitchLetter[tileVecHash].get_rotation_degrees() / 90)
+		return lookup[deg]
+	else: # Regular water tile
+		return waterTileNumToFacingLookup[tileNumber]
+
 func tubeMove():
-	pass
+	var tubeOrder = getTubeOrder()
+	for tubeHash in tubeOrder:
+		var tubeTileVec = unHashTile(tubeHash)
+		var facingDir = getWaterFacingDir(tubeTileVec)
+		var nextTileVec = tubeTileVec + facingDir
+		var nextTileVecHash = hashTile(nextTileVec)
+		if not (nextTileVecHash in tubeLocations):
+			var tube = tubeLocations[tubeHash]
+			tubeLocations.erase(tubeHash)
+			tubeLocations[nextTileVecHash] = tube
+			tubeTweenCount += 1
+			
+			tube.move(
+				tileToPos(tubeTileVec),
+				tileToPos(nextTileVec)
+			)
+
+func _tube_tween_completed():
+	tubeTweenCount -= 1
+	if tubeTweenCount == 0:
+		tubeMove()
+
+func getTubeOrder():
+	var tubeOrder = []
+	var endTileVec = posToTile($endMarker.position)
+	var endTileVecHash = hashTile(endTileVec)
+	var seen = {}
+	seen[endTileVecHash] = true
+	var lst = []
+	lst.push_back(endTileVecHash)
+	while lst.size() > 0:
+		
+		var tileVecHash = lst.pop_front()
+		
+		if tileVecHash in tubeLocations:
+			tubeOrder.append(tileVecHash)
+			
+		if tileVecHash in tileLinkList:
+			var upstreamTileLst = shuffleList(tileLinkList[tileVecHash])
+			for upstreamTileVec in upstreamTileLst:
+				var upstreamTileVecHash = hashTile(upstreamTileVec)
+				if not (upstreamTileVecHash in seen):
+					seen[upstreamTileVecHash] = true
+					lst.push_back(upstreamTileVecHash)
+	
+	return tubeOrder
 
 func shuffleList(list):
 	var shuffledList = [] 
 	var indexList = range(list.size())
-	for i in range(list.size()):
+	for _i in range(list.size()):
 		var x = rng.randi() % indexList.size()
 		shuffledList.append(list[indexList[x]])
 		indexList.remove(x)
 	return shuffledList
+
+func _on_debugSpawn_timeout():
+	spawnTube(2)
+	spawnTube(4)
