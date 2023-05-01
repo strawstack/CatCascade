@@ -435,5 +435,5 @@ texture = ExtResource( 4 )
 position = Vector2( -32, 352 )
 
 [node name="debugSpawn" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 12.0
 [connection signal="timeout" from="debugSpawn" to="." method="_on_debugSpawn_timeout"]

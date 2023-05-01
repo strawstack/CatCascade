@@ -25,7 +25,7 @@ func setCatType(catNumber, wantsWashParam, wantsMovieParam, wantsBurgerParam, wa
 	
 	# wantsGroom is only for cat0
 	wantsGroom  = false
-	if catNumber == 0 and rng.randi(0, 2) == 0:
+	if catNumber == 0 and rng.randi_range(0, 2) == 0:
 		wantsGroom  = true
 	
 	catNumber   = catNumber
@@ -53,12 +53,11 @@ func randBool():
 	return rng.randi_range(0, 1) == 0
 
 func randomCatType():
+	rng.randomize()
 	catNumber = rng.randi_range(0, 2)
-
-	var values = [
-		randBool(),
-		randBool(),
-		randBool(),
-		randBool()
-	]
-	setCatType(catNumber, values[0], values[1], values[2], values[3])
+	setCatType(
+		catNumber, 
+		rng.randi_range(0, 1) == 0, 
+		rng.randi_range(0, 1) == 0, 
+		rng.randi_range(0, 1) == 0, 
+		rng.randi_range(0, 1) == 0)

@@ -293,12 +293,12 @@ func getTubeOrder():
 	var lst = []
 	lst.push_back(endTileVecHash)
 	while lst.size() > 0:
-		
+
 		var tileVecHash = lst.pop_front()
-		
+
 		if tileVecHash in tubeLocations:
 			tubeOrder.append(tileVecHash)
-			
+
 		if tileVecHash in tileLinkList:
 			var upstreamTileLst = shuffleList(tileLinkList[tileVecHash])
 			for upstreamTileVec in upstreamTileLst:
@@ -306,10 +306,11 @@ func getTubeOrder():
 				if not (upstreamTileVecHash in seen):
 					seen[upstreamTileVecHash] = true
 					lst.push_back(upstreamTileVecHash)
-	
+
 	return tubeOrder
 
 func shuffleList(list):
+	rng.randomize()
 	var shuffledList = [] 
 	var indexList = range(list.size())
 	for _i in range(list.size()):
@@ -319,7 +320,8 @@ func shuffleList(list):
 	return shuffledList
 
 func _on_debugSpawn_timeout():
-	spawnTube(2)
-	spawnTube(4)
-	spawnTube(1)
-	spawnTube(3)
+	rng.randomize()
+	var lst = [1, 2, 3, 4]
+	lst = shuffleList(lst)
+	for i in range(rng.randi_range(0, 4)):
+		spawnTube(lst[i])
