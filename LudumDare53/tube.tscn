@@ -1,28 +1,140 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://img/tube.png" type="Texture" id=1]
-[ext_resource path="res://img/cats/cat2.png" type="Texture" id=2]
-[ext_resource path="res://img/cats/cat1.png" type="Texture" id=3]
-[ext_resource path="res://img/cats/cat0.png" type="Texture" id=4]
-[ext_resource path="res://tube.gd" type="Script" id=5]
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+var catNumber
+var wantsGroom
+var wantsWash
+var wantsMovie
+var wantsBurger
+var wantsSushi
+
+var rng = RandomNumberGenerator.new()
+
+func _ready():
+	rng.randomize()
+
+func move(fromVec, toVec):
+	var tween = get_node(\"Tween\")
+	tween.interpolate_property(
+		self, \"position\",
+		fromVec, toVec, 
+		4
+	)
+	tween.start()
+
+func setCatType(catNumberParam, wantsWashParam, wantsMovieParam, wantsBurgerParam, wantsSushiParam):
+	
+	# wantsGroom is only for cat0
+	wantsGroom  = false
+	if catNumber == 0 and rng.randi(0, 2) == 0:
+		wantsGroom  = true
+	
+	catNumber   = catNumber
+	wantsWash   = wantsWashParam
+	wantsMovie  = wantsMovieParam
+	wantsBurger = wantsBurgerParam
+	wantsSushi  = wantsSushiParam
+
+	var catNumberLookup = [$cat0, $cat1, $cat2]
+	catNumberLookup[catNumber].visible = true
+
+	if wantsWash:
+		$dirt.visible = true
+
+	if wantsMovie:
+		$glasses.visible = true
+
+	if wantsBurger:
+		$burger.visible = true
+
+	if wantsSushi:
+		$chopstick.visible = true
+
+func randBool():
+	return rng.randi_range(0, 1) == 0
+
+func randomCatType():
+	catNumber = rng.randi_range(0, 2)
+
+	var values = [
+		randBool(),
+		randBool(),
+		randBool(),
+		randBool()
+	]
+	print(values)
+	setCatType(catNumber, values[0], values[1], values[2], values[3])
+"
+
+[sub_resource type="StreamTexture" id=2]
+load_path = "res://.import/tube.png-bac7ac5380ff2fcd086446d42a582f3b.stex"
+
+[sub_resource type="StreamTexture" id=3]
+load_path = "res://.import/cat0.png-e48a3b0b56d2be2f266268bac663361d.stex"
+
+[sub_resource type="StreamTexture" id=4]
+load_path = "res://.import/cat1.png-e06d3709d31c305b2564fd166ba4443e.stex"
+
+[sub_resource type="StreamTexture" id=5]
+load_path = "res://.import/cat2.png-957c6e3b08b072b9abe56d9bddda22fd.stex"
+
+[sub_resource type="StreamTexture" id=6]
+load_path = "res://.import/groom.png-b4b8b505f7d331b41ed5662593285c84.stex"
+
+[sub_resource type="StreamTexture" id=7]
+load_path = "res://.import/dirt.png-90d58507b5b8eb2ac78c41c3d8cce365.stex"
+
+[sub_resource type="StreamTexture" id=8]
+load_path = "res://.import/3dglasses.png-0ba6a46e2e5c5b301246587b35392dfe.stex"
+
+[sub_resource type="StreamTexture" id=9]
+load_path = "res://.import/burger.png-67f9aeace2634d6f651f5e86e350804c.stex"
+
+[sub_resource type="StreamTexture" id=10]
+load_path = "res://.import/chopstick.png-1dd2fddaee885cb1d6b051bd9c390522.stex"
 
 [node name="tube" type="Node2D"]
-script = ExtResource( 5 )
+script = SubResource( 1 )
 
 [node name="Tween" type="Tween" parent="."]
 
 [node name="tubeSprite" type="Sprite" parent="."]
 position = Vector2( 0.374573, 0 )
-texture = ExtResource( 1 )
+texture = SubResource( 2 )
 
 [node name="cat0" type="Sprite" parent="."]
 visible = false
-texture = ExtResource( 4 )
+modulate = Color( 0.32549, 0.32549, 0.32549, 1 )
+texture = SubResource( 3 )
 
 [node name="cat1" type="Sprite" parent="."]
 visible = false
-texture = ExtResource( 3 )
+modulate = Color( 0.32549, 0.32549, 0.32549, 1 )
+texture = SubResource( 4 )
 
 [node name="cat2" type="Sprite" parent="."]
 visible = false
-texture = ExtResource( 2 )
+modulate = Color( 0.32549, 0.32549, 0.32549, 1 )
+texture = SubResource( 5 )
+
+[node name="groom" type="Sprite" parent="."]
+visible = false
+texture = SubResource( 6 )
+
+[node name="dirt" type="Sprite" parent="."]
+visible = false
+texture = SubResource( 7 )
+
+[node name="glasses" type="Sprite" parent="."]
+visible = false
+texture = SubResource( 8 )
+
+[node name="burger" type="Sprite" parent="."]
+visible = false
+texture = SubResource( 9 )
+
+[node name="chopstick" type="Sprite" parent="."]
+visible = false
+texture = SubResource( 10 )

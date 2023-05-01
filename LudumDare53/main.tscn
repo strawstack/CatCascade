@@ -176,10 +176,11 @@ format = 1
 tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0 )
 
 [node name="Shop" type="TileMap" parent="."]
+visible = false
 modulate = Color( 0.803922, 0.513726, 0.835294, 1 )
 tile_set = SubResource( 4 )
 format = 1
-tile_data = PoolIntArray( 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 131086, 0, 0, 131088, 0, 0, 196616, 0, 0, 393217, 0, 0, 589825, 0, 0, 589826, 0, 0, 589842, 0, 0, 655361, 0, 0, 655362, 0, 0, 655377, 0, 0, 655378, 0, 0, 720912, 0, 0, 720913, 0, 0 )
+tile_data = PoolIntArray( 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 131086, 0, 0, 131088, 0, 0, 196616, 0, 0, 393217, 0, 0, 524297, 0, 0, 589825, 0, 0, 589826, 0, 0, 589842, 0, 0, 655361, 0, 0, 655362, 0, 0, 655377, 0, 0, 655378, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720912, 0, 0, 720913, 0, 0 )
 
 [node name="Switch" type="TileMap" parent="."]
 visible = false
@@ -203,7 +204,7 @@ position = Vector2( 544, 160 )
 texture = ExtResource( 2 )
 
 [node name="review" type="Sprite" parent="shops"]
-position = Vector2( 94.7492, 418.332 )
+position = Vector2( 96, 448 )
 texture = ExtResource( 26 )
 
 [node name="sushi" type="Sprite" parent="shops"]
@@ -434,5 +435,5 @@ texture = ExtResource( 4 )
 position = Vector2( -32, 352 )
 
 [node name="debugSpawn" type="Timer" parent="."]
-wait_time = 48.0
+wait_time = 5.0
 [connection signal="timeout" from="debugSpawn" to="." method="_on_debugSpawn_timeout"]

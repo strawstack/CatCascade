@@ -243,6 +243,7 @@ func spawnTube(place):
 	tubeInstance.get_node("Tween").connect("tween_all_completed", self, "_tube_tween_completed")
 	tubeLocations[spawnTileVecHash] = tubeInstance
 	tubeInstance.set_position(spawnVec)
+	tubeInstance.randomCatType()
 	$tubes.add_child(tubeInstance)
 
 func getWaterFacingDir(tileVec):
@@ -320,3 +321,5 @@ func shuffleList(list):
 func _on_debugSpawn_timeout():
 	spawnTube(2)
 	spawnTube(4)
+	spawnTube(1)
+	spawnTube(3)
