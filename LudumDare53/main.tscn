@@ -215,6 +215,26 @@ texture = ExtResource( 25 )
 position = Vector2( 1120, 672 )
 texture = ExtResource( 22 )
 
+[node name="shopLocations" type="Node2D" parent="."]
+
+[node name="groom" type="Node2D" parent="shopLocations"]
+position = Vector2( 608, 480 )
+
+[node name="movie" type="Node2D" parent="shopLocations"]
+position = Vector2( 224, 672 )
+
+[node name="wash" type="Node2D" parent="shopLocations"]
+position = Vector2( 544, 160 )
+
+[node name="review" type="Node2D" parent="shopLocations"]
+position = Vector2( 96, 352 )
+
+[node name="sushi" type="Node2D" parent="shopLocations"]
+position = Vector2( 928, 224 )
+
+[node name="burger" type="Node2D" parent="shopLocations"]
+position = Vector2( 1120, 608 )
+
 [node name="numbers" type="Node2D" parent="."]
 
 [node name="1" type="Sprite" parent="numbers"]
