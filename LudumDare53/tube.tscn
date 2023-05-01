@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://tube.gd" type="Script" id=1]
+[ext_resource path="res://img/cats/anger.png" type="Texture" id=2]
 
 [sub_resource type="StreamTexture" id=2]
 load_path = "res://.import/tube.png-bac7ac5380ff2fcd086446d42a582f3b.stex"
@@ -72,3 +73,7 @@ texture = SubResource( 9 )
 [node name="chopstick" type="Sprite" parent="."]
 visible = false
 texture = SubResource( 10 )
+
+[node name="angry" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 2 )

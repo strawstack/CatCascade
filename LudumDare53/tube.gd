@@ -6,10 +6,15 @@ var wantsWash
 var wantsMovie
 var wantsBurger
 var wantsSushi
+var isAngry = false
 
 var rng = RandomNumberGenerator.new()
 
+var tubeSpeed = 2 # 4
+
+var gc
 func _ready():
+	gc = get_tree().get_root().get_node("main")
 	rng.randomize()
 
 func move(fromVec, toVec):
@@ -17,9 +22,74 @@ func move(fromVec, toVec):
 	tween.interpolate_property(
 		self, "position",
 		fromVec, toVec, 
-		4
+		tubeSpeed
 	)
 	tween.start()
+
+func feelHappy():
+	print("feelHappy")
+
+func feelAngry():
+	isAngry = true
+	$angry.visible = true
+
+func visit(shopName):
+	if shopName == "groom":
+		if wantsGroom:
+			wantsGroom = false
+			$groom.visible = false
+			feelHappy()
+		else:
+			feelAngry()
+		
+	elif shopName == "movie":
+		if wantsMovie:
+			wantsMovie = false
+			$glasses.visible = false
+			feelHappy()
+		else:
+			feelAngry()
+		
+	elif shopName == "wash":
+		if wantsWash:
+			wantsWash = false
+			$dirt.visible = false
+			feelHappy()
+		else:
+			feelAngry()
+		
+	elif shopName == "review":
+		giveReview()
+
+	elif shopName == "sushi":
+		if wantsSushi:
+			wantsSushi = false
+			$chopstick.visible = false
+			feelHappy()
+		else:
+			feelAngry()
+
+	elif shopName == "burger":
+		if wantsBurger:
+			wantsBurger = false
+			$burger.visible = false
+			feelHappy()
+		else:
+			feelAngry()
+
+func giveReview():
+	var satis = (not wantsGroom) and (not wantsWash) and (not wantsMovie) and (not wantsBurger) and (not wantsSushi)
+	if not satis and isAngry: 
+		gc.leaveReview(-1)
+	
+	elif not satis and not isAngry:
+		gc.leaveReview(-0.5)
+	
+	elif satis and isAngry:
+		gc.leaveReview(-0.5)
+	
+	elif satis and not isAngry:
+		gc.leaveReview(0.5)
 
 func setCatType(catNumber, wantsWashParam, wantsMovieParam, wantsBurgerParam, wantsSushiParam):
 	
@@ -27,6 +97,7 @@ func setCatType(catNumber, wantsWashParam, wantsMovieParam, wantsBurgerParam, wa
 	wantsGroom  = false
 	if catNumber == 0 and rng.randi_range(0, 2) == 0:
 		wantsGroom  = true
+		$groom.visible = true
 	
 	catNumber   = catNumber
 	wantsWash   = wantsWashParam

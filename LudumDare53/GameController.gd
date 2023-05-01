@@ -72,6 +72,10 @@ var tubeLocations = {}
 
 var tubeTweenCount = 0
 
+var shopLocations = {}
+
+var reviewScore = 0.5
+
 func _ready():
 	rng.randomize()
 	
@@ -90,6 +94,18 @@ func _ready():
 	for s in switches:
 		var switchTileVecHash = hashTile(posToTile(switches[s].position))
 		tileVecHashToSwitchLetter[switchTileVecHash] = switches[s]
+
+	var shops = [
+		$shopLocations/groom,
+		$shopLocations/movie,
+		$shopLocations/wash,
+		$shopLocations/review,
+		$shopLocations/sushi,
+		$shopLocations/burger
+	]
+	
+	for s in shops:
+		shopLocations[hashTile(posToTile(s.position))] = s.name
 
 	arrows["q"] = $arrows/qArrow
 	arrows["w"] = $arrows/wArrow
@@ -111,8 +127,7 @@ func _ready():
 	tubeSpawnLocations.append($tubeSpawn/three)
 	tubeSpawnLocations.append($tubeSpawn/four)
 	
-	spawnTube(2)
-	spawnTube(3)
+	spawnTube(1)
 	
 	tubeMove()
 	$debugSpawn.start()
@@ -261,6 +276,10 @@ func getWaterFacingDir(tileVec):
 	else: # Regular water tile
 		return waterTileNumToFacingLookup[tileNumber]
 
+func leaveReview(value):
+	reviewScore += value
+	# TODO - update review UI
+
 func tubeMove():
 	var tubeOrder = getTubeOrder()
 	for tubeHash in tubeOrder:
@@ -274,6 +293,9 @@ func tubeMove():
 			tubeLocations[nextTileVecHash] = tube
 			tubeTweenCount += 1
 			
+			if tubeHash in shopLocations:
+				tube.visit(shopLocations[tubeHash])
+
 			tube.move(
 				tileToPos(tubeTileVec),
 				tileToPos(nextTileVec)
