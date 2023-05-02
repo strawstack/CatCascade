@@ -1,10 +1,21 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://img/cell.png" type="Texture" id=1]
 [ext_resource path="res://texture/wash.tres" type="Texture" id=2]
 [ext_resource path="res://texture/water1.tres" type="Texture" id=3]
 [ext_resource path="res://img/arrow.png" type="Texture" id=4]
 [ext_resource path="res://GameController.gd" type="Script" id=5]
+[ext_resource path="res://review.gd" type="Script" id=6]
+[ext_resource path="res://img/star/star_outer.png" type="Texture" id=7]
+[ext_resource path="res://img/star/star_half.png" type="Texture" id=8]
+[ext_resource path="res://img/star/star_full.png" type="Texture" id=9]
+[ext_resource path="res://img/door/open.png" type="Texture" id=10]
+[ext_resource path="res://img/door/closed.png" type="Texture" id=11]
+[ext_resource path="res://doors.gd" type="Script" id=12]
+[ext_resource path="res://overlay.gd" type="Script" id=13]
+[ext_resource path="res://img/overlay.png" type="Texture" id=14]
+[ext_resource path="res://font/VarelaRound-Regular.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://img/cats/anger.png" type="Texture" id=16]
 [ext_resource path="res://texture/water0.tres" type="Texture" id=19]
 [ext_resource path="res://texture/water2.tres" type="Texture" id=20]
 [ext_resource path="res://texture/water3.tres" type="Texture" id=21]
@@ -154,6 +165,31 @@
 0/shapes = [  ]
 0/z_index = 0
 
+[sub_resource type="DynamicFont" id=6]
+size = 32
+font_data = ExtResource( 15 )
+
+[sub_resource type="StreamTexture" id=13]
+load_path = "res://.import/tube.png-bac7ac5380ff2fcd086446d42a582f3b.stex"
+
+[sub_resource type="StreamTexture" id=7]
+load_path = "res://.import/cat0.png-e48a3b0b56d2be2f266268bac663361d.stex"
+
+[sub_resource type="StreamTexture" id=8]
+load_path = "res://.import/groom.png-b4b8b505f7d331b41ed5662593285c84.stex"
+
+[sub_resource type="StreamTexture" id=9]
+load_path = "res://.import/dirt.png-90d58507b5b8eb2ac78c41c3d8cce365.stex"
+
+[sub_resource type="StreamTexture" id=10]
+load_path = "res://.import/3dglasses.png-0ba6a46e2e5c5b301246587b35392dfe.stex"
+
+[sub_resource type="StreamTexture" id=11]
+load_path = "res://.import/burger.png-67f9aeace2634d6f651f5e86e350804c.stex"
+
+[sub_resource type="StreamTexture" id=12]
+load_path = "res://.import/chopstick.png-1dd2fddaee885cb1d6b051bd9c390522.stex"
+
 [node name="main" type="Node"]
 script = ExtResource( 5 )
 
@@ -161,13 +197,13 @@ script = ExtResource( 5 )
 modulate = Color( 0.533333, 0.729412, 0.529412, 1 )
 tile_set = SubResource( 1 )
 format = 1
-tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 65554, 0, 0, 65555, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 131090, 0, 0, 131091, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 196625, 0, 0, 196626, 0, 0, 196627, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0, 262162, 0, 0, 262163, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 0, 0, 327697, 0, 0, 327698, 0, 0, 327699, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0, 589840, 0, 0, 589841, 0, 0, 589842, 0, 0, 589843, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0 )
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 65536, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 65554, 0, 0, 65555, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 131090, 0, 0, 131091, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 196625, 0, 0, 196626, 0, 0, 196627, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0, 262162, 0, 0, 262163, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 0, 0, 327697, 0, 0, 327698, 0, 0, 327699, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0, 589840, 0, 0, 589841, 0, 0, 589842, 0, 0, 589843, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0 )
 
 [node name="Water" type="TileMap" parent="."]
 modulate = Color( 0.592157, 0.768627, 0.807843, 1 )
 tile_set = SubResource( 2 )
 format = 1
-tile_data = PoolIntArray( 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 65537, 5, 0, 65538, 5, 0, 65539, 5, 0, 65540, 5, 0, 131073, 5, 0, 131074, 5, 0, 131075, 5, 0, 131076, 5, 0, 131078, 8, 0, 131079, 8, 0, 131080, 8, 0, 131081, 8, 0, 131082, 5, 0, 196609, 8, 0, 196610, 8, 0, 196611, 8, 0, 196612, 8, 0, 196613, 8, 0, 196618, 8, 0, 196619, 8, 0, 196621, 8, 0, 196622, 8, 0, 196623, 8, 0, 196624, 8, 0, 196625, 8, 0, 196626, 5, 0, 262150, 5, 0, 262154, 7, 0, 262156, 5, 0, 262162, 5, 0, 393215, 6, 0, 327680, 6, 0, 327681, 6, 0, 327682, 6, 0, 327683, 6, 0, 327686, 8, 0, 327688, 8, 0, 327689, 8, 0, 327690, 7, 0, 327692, 8, 0, 327694, 8, 0, 327695, 8, 0, 327696, 8, 0, 327697, 8, 0, 327698, 5, 0, 393219, 7, 0, 393223, 5, 0, 393229, 5, 0, 393234, 5, 0, 458755, 7, 0, 458756, 6, 0, 458758, 6, 0, 458759, 6, 0, 458760, 6, 0, 458761, 6, 0, 458762, 6, 0, 458764, 6, 0, 458765, 6, 0, 458766, 6, 0, 458767, 6, 0, 458768, 6, 0, 458770, 6, 0, 524291, 7, 0, 524293, 5, 0, 524295, 7, 0, 524299, 5, 0, 524302, 7, 0, 524305, 5, 0, 589827, 7, 0, 589829, 5, 0, 589831, 7, 0, 589835, 5, 0, 589838, 7, 0, 589840, 5, 0, 589841, 6, 0, 655363, 7, 0, 655364, 6, 0, 655365, 6, 0, 655366, 6, 0, 655368, 6, 0, 655369, 6, 0, 655370, 6, 0, 655371, 6, 0, 655374, 7, 0, 655375, 6, 0, 655376, 6, 0 )
+tile_data = PoolIntArray( -65535, 5, 0, -65534, 5, 0, -65533, 5, 0, -65532, 5, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 65537, 5, 0, 65538, 5, 0, 65539, 5, 0, 65540, 5, 0, 131073, 5, 0, 131074, 5, 0, 131075, 5, 0, 131076, 5, 0, 131078, 8, 0, 131079, 8, 0, 131080, 8, 0, 131081, 8, 0, 131082, 5, 0, 196609, 8, 0, 196610, 8, 0, 196611, 8, 0, 196612, 8, 0, 196613, 8, 0, 196618, 8, 0, 196619, 8, 0, 196621, 8, 0, 196622, 8, 0, 196623, 8, 0, 196624, 8, 0, 196625, 8, 0, 196626, 5, 0, 262150, 5, 0, 262154, 7, 0, 262156, 5, 0, 262162, 5, 0, 393215, 6, 0, 327680, 6, 0, 327681, 6, 0, 327682, 6, 0, 327683, 6, 0, 327686, 8, 0, 327688, 8, 0, 327689, 8, 0, 327690, 7, 0, 327692, 8, 0, 327694, 8, 0, 327695, 8, 0, 327696, 8, 0, 327697, 8, 0, 327698, 5, 0, 393219, 7, 0, 393223, 5, 0, 393229, 5, 0, 393234, 5, 0, 458755, 7, 0, 458756, 6, 0, 458758, 6, 0, 458759, 6, 0, 458760, 6, 0, 458761, 6, 0, 458762, 6, 0, 458764, 6, 0, 458765, 6, 0, 458766, 6, 0, 458767, 6, 0, 458768, 6, 0, 458770, 6, 0, 524291, 7, 0, 524293, 5, 0, 524295, 7, 0, 524299, 5, 0, 524302, 7, 0, 524305, 5, 0, 589827, 7, 0, 589829, 5, 0, 589831, 7, 0, 589835, 5, 0, 589838, 7, 0, 589840, 5, 0, 589841, 6, 0, 655363, 7, 0, 655364, 6, 0, 655365, 6, 0, 655366, 6, 0, 655368, 6, 0, 655369, 6, 0, 655370, 6, 0, 655371, 6, 0, 655374, 7, 0, 655375, 6, 0, 655376, 6, 0 )
 
 [node name="Menu" type="TileMap" parent="."]
 visible = false
@@ -188,6 +224,86 @@ modulate = Color( 0.419608, 0.831373, 0.509804, 1 )
 tile_set = SubResource( 5 )
 format = 1
 tile_data = PoolIntArray( 196614, 0, 0, 196620, 0, 0, 327687, 0, 0, 327693, 0, 0, 458757, 0, 0, 458763, 0, 0, 458769, 0, 0, 655367, 0, 0 )
+
+[node name="review" type="Node2D" parent="."]
+position = Vector2( 448, 128 )
+script = ExtResource( 6 )
+
+[node name="outer" type="Node2D" parent="review"]
+
+[node name="star0" type="Sprite" parent="review/outer"]
+position = Vector2( 96, 288 )
+texture = ExtResource( 7 )
+
+[node name="star1" type="Sprite" parent="review/outer"]
+position = Vector2( 160, 288 )
+texture = ExtResource( 7 )
+
+[node name="star2" type="Sprite" parent="review/outer"]
+position = Vector2( 224, 288 )
+texture = ExtResource( 7 )
+
+[node name="star3" type="Sprite" parent="review/outer"]
+position = Vector2( 288, 288 )
+texture = ExtResource( 7 )
+
+[node name="star4" type="Sprite" parent="review/outer"]
+position = Vector2( 352, 288 )
+texture = ExtResource( 7 )
+
+[node name="half" type="Node2D" parent="review"]
+
+[node name="star0" type="Sprite" parent="review/half"]
+visible = false
+position = Vector2( 96, 288 )
+texture = ExtResource( 8 )
+
+[node name="star1" type="Sprite" parent="review/half"]
+visible = false
+position = Vector2( 160, 288 )
+texture = ExtResource( 8 )
+
+[node name="star2" type="Sprite" parent="review/half"]
+visible = false
+position = Vector2( 224, 288 )
+texture = ExtResource( 8 )
+
+[node name="star3" type="Sprite" parent="review/half"]
+visible = false
+position = Vector2( 288, 288 )
+texture = ExtResource( 8 )
+
+[node name="star4" type="Sprite" parent="review/half"]
+visible = false
+position = Vector2( 352, 288 )
+texture = ExtResource( 8 )
+
+[node name="full" type="Node2D" parent="review"]
+
+[node name="star0" type="Sprite" parent="review/full"]
+visible = false
+position = Vector2( 96, 288 )
+texture = ExtResource( 9 )
+
+[node name="star1" type="Sprite" parent="review/full"]
+visible = false
+position = Vector2( 160, 288 )
+texture = ExtResource( 9 )
+
+[node name="star2" type="Sprite" parent="review/full"]
+visible = false
+position = Vector2( 224, 288 )
+texture = ExtResource( 9 )
+
+[node name="star3" type="Sprite" parent="review/full"]
+visible = false
+position = Vector2( 288, 288 )
+texture = ExtResource( 9 )
+
+[node name="star4" type="Sprite" parent="review/full"]
+visible = false
+position = Vector2( 352, 288 )
+texture = ExtResource( 9 )
 
 [node name="shops" type="Node2D" parent="."]
 
@@ -235,7 +351,11 @@ position = Vector2( 928, 224 )
 [node name="burger" type="Node2D" parent="shopLocations"]
 position = Vector2( 1120, 608 )
 
+[node name="endMarker" type="Node2D" parent="shopLocations"]
+position = Vector2( -32, 352 )
+
 [node name="numbers" type="Node2D" parent="."]
+position = Vector2( 0, 176 )
 
 [node name="1" type="Sprite" parent="numbers"]
 position = Vector2( 96, 96 )
@@ -403,18 +523,61 @@ texture = ExtResource( 21 )
 [node name="tubeSpawn" type="Node2D" parent="."]
 
 [node name="one" type="Node2D" parent="tubeSpawn"]
-position = Vector2( 96, 32 )
+position = Vector2( 96, -32 )
 
 [node name="two" type="Node2D" parent="tubeSpawn"]
-position = Vector2( 160, 32 )
+position = Vector2( 160, -32 )
 
 [node name="three" type="Node2D" parent="tubeSpawn"]
-position = Vector2( 224, 32 )
+position = Vector2( 224, -32 )
 
 [node name="four" type="Node2D" parent="tubeSpawn"]
-position = Vector2( 288, 32 )
+position = Vector2( 288, -32 )
 
 [node name="tubes" type="Node2D" parent="."]
+
+[node name="doors" type="Node2D" parent="."]
+script = ExtResource( 12 )
+
+[node name="door0" type="Node2D" parent="doors"]
+position = Vector2( 96, 192 )
+
+[node name="close" type="Sprite" parent="doors/door0"]
+texture = ExtResource( 11 )
+
+[node name="open" type="Sprite" parent="doors/door0"]
+visible = false
+texture = ExtResource( 10 )
+
+[node name="door1" type="Node2D" parent="doors"]
+position = Vector2( 160, 192 )
+
+[node name="close" type="Sprite" parent="doors/door1"]
+texture = ExtResource( 11 )
+
+[node name="open" type="Sprite" parent="doors/door1"]
+visible = false
+texture = ExtResource( 10 )
+
+[node name="door2" type="Node2D" parent="doors"]
+position = Vector2( 224, 192 )
+
+[node name="close" type="Sprite" parent="doors/door2"]
+texture = ExtResource( 11 )
+
+[node name="open" type="Sprite" parent="doors/door2"]
+visible = false
+texture = ExtResource( 10 )
+
+[node name="door3" type="Node2D" parent="doors"]
+position = Vector2( 288, 192 )
+
+[node name="close" type="Sprite" parent="doors/door3"]
+texture = ExtResource( 11 )
+
+[node name="open" type="Sprite" parent="doors/door3"]
+visible = false
+texture = ExtResource( 10 )
 
 [node name="arrows" type="Node2D" parent="."]
 modulate = Color( 1, 1, 1, 0.498039 )
@@ -455,5 +618,347 @@ texture = ExtResource( 4 )
 position = Vector2( -32, 352 )
 
 [node name="debugSpawn" type="Timer" parent="."]
-wait_time = 12.0
+wait_time = 18.0
+
+[node name="tubeMoveTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="doorTimers" type="Node2D" parent="."]
+
+[node name="one" type="Timer" parent="doorTimers"]
+wait_time = 3.0
+one_shot = true
+
+[node name="two" type="Timer" parent="doorTimers"]
+wait_time = 3.0
+one_shot = true
+
+[node name="three" type="Timer" parent="doorTimers"]
+wait_time = 3.0
+one_shot = true
+
+[node name="four" type="Timer" parent="doorTimers"]
+wait_time = 3.0
+one_shot = true
+
+[node name="overlay" type="Node2D" parent="."]
+script = ExtResource( 13 )
+
+[node name="over" type="Sprite" parent="overlay"]
+position = Vector2( 640, 384 )
+texture = ExtResource( 14 )
+
+[node name="Numbers" type="Label" parent="overlay"]
+margin_left = 64.0
+margin_top = 160.0
+margin_right = 354.0
+margin_bottom = 243.0
+custom_fonts/font = SubResource( 6 )
+text = "Press number keys 
+to release tubes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Review" type="Label" parent="overlay"]
+margin_left = 16.0
+margin_top = 448.0
+margin_right = 490.0
+margin_bottom = 531.0
+custom_fonts/font = SubResource( 6 )
+text = "Cats review 
+their experience"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Q" type="Label" parent="overlay"]
+margin_left = 352.0
+margin_top = 192.0
+margin_right = 416.0
+margin_bottom = 256.0
+custom_fonts/font = SubResource( 6 )
+text = "Q"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="W" type="Label" parent="overlay"]
+margin_left = 416.0
+margin_top = 320.0
+margin_right = 480.0
+margin_bottom = 384.0
+custom_fonts/font = SubResource( 6 )
+text = "W"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="E" type="Label" parent="overlay"]
+margin_left = 736.0
+margin_top = 192.0
+margin_right = 800.0
+margin_bottom = 256.0
+custom_fonts/font = SubResource( 6 )
+text = "E"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="R" type="Label" parent="overlay"]
+margin_left = 800.0
+margin_top = 320.0
+margin_right = 864.0
+margin_bottom = 384.0
+custom_fonts/font = SubResource( 6 )
+text = "R"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="A" type="Label" parent="overlay"]
+margin_left = 288.0
+margin_top = 448.0
+margin_right = 352.0
+margin_bottom = 512.0
+custom_fonts/font = SubResource( 6 )
+text = "A"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="S" type="Label" parent="overlay"]
+margin_left = 416.0
+margin_top = 640.0
+margin_right = 480.0
+margin_bottom = 704.0
+custom_fonts/font = SubResource( 6 )
+text = "S"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="D" type="Label" parent="overlay"]
+margin_left = 672.0
+margin_top = 448.0
+margin_right = 736.0
+margin_bottom = 512.0
+custom_fonts/font = SubResource( 6 )
+text = "D"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="F" type="Label" parent="overlay"]
+margin_left = 1056.0
+margin_top = 448.0
+margin_right = 1120.0
+margin_bottom = 512.0
+custom_fonts/font = SubResource( 6 )
+text = "F"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tubeSprite" type="Sprite" parent="overlay"]
+modulate = Color( 0.482353, 0.494118, 0.870588, 1 )
+position = Vector2( 960, 224 )
+texture = SubResource( 13 )
+
+[node name="cat0" type="Sprite" parent="overlay"]
+modulate = Color( 0.32549, 0.32549, 0.32549, 1 )
+position = Vector2( 896, 224 )
+texture = SubResource( 7 )
+
+[node name="Tubes" type="Label" parent="overlay"]
+margin_left = 992.0
+margin_top = 192.0
+margin_right = 1056.0
+margin_bottom = 256.0
+custom_fonts/font = SubResource( 6 )
+text = "Cats ride in tubes "
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tubeSprite2" type="Sprite" parent="overlay"]
+modulate = Color( 0.482353, 0.494118, 0.870588, 1 )
+position = Vector2( 960, 288 )
+texture = SubResource( 13 )
+
+[node name="cat1" type="Sprite" parent="overlay"]
+modulate = Color( 0.32549, 0.32549, 0.32549, 1 )
+position = Vector2( 960, 288 )
+texture = SubResource( 7 )
+
+[node name="groom" type="Sprite" parent="overlay"]
+modulate = Color( 0.32549, 0.32549, 0.32549, 1 )
+position = Vector2( 960, 288 )
+texture = SubResource( 8 )
+
+[node name="tubeSprite4" type="Sprite" parent="overlay"]
+modulate = Color( 0.482353, 0.494118, 0.870588, 1 )
+position = Vector2( 960, 352 )
+texture = SubResource( 13 )
+
+[node name="Tubes2" type="Label" parent="overlay"]
+margin_left = 992.0
+margin_top = 256.0
+margin_right = 1260.0
+margin_bottom = 320.0
+custom_fonts/font = SubResource( 6 )
+text = "Fat cat = groom"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dirt" type="Sprite" parent="overlay"]
+position = Vector2( 960, 352 )
+texture = SubResource( 9 )
+
+[node name="tubeSprite5" type="Sprite" parent="overlay"]
+modulate = Color( 0.482353, 0.494118, 0.870588, 1 )
+position = Vector2( 960, 416 )
+texture = SubResource( 13 )
+
+[node name="Tubes3" type="Label" parent="overlay"]
+margin_left = 992.0
+margin_top = 320.0
+margin_right = 1260.0
+margin_bottom = 384.0
+custom_fonts/font = SubResource( 6 )
+text = "Dirt = wash"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="glasses" type="Sprite" parent="overlay"]
+position = Vector2( 960, 416 )
+texture = SubResource( 10 )
+
+[node name="tubeSprite6" type="Sprite" parent="overlay"]
+modulate = Color( 0.482353, 0.494118, 0.870588, 1 )
+position = Vector2( 800, 544 )
+texture = SubResource( 13 )
+
+[node name="Tubes4" type="Label" parent="overlay"]
+margin_left = 992.0
+margin_top = 384.0
+margin_right = 1260.0
+margin_bottom = 448.0
+custom_fonts/font = SubResource( 6 )
+text = "glasses = movie"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="burger" type="Sprite" parent="overlay"]
+position = Vector2( 800, 544 )
+texture = SubResource( 11 )
+
+[node name="tubeSprite7" type="Sprite" parent="overlay"]
+modulate = Color( 0.482353, 0.494118, 0.870588, 1 )
+position = Vector2( 800, 608 )
+texture = SubResource( 13 )
+
+[node name="Tubes5" type="Label" parent="overlay"]
+margin_left = 832.0
+margin_top = 512.0
+margin_right = 1100.0
+margin_bottom = 576.0
+custom_fonts/font = SubResource( 6 )
+text = "ketchup = burger"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="chopstick" type="Sprite" parent="overlay"]
+position = Vector2( 800, 608 )
+texture = SubResource( 12 )
+
+[node name="tubeSprite8" type="Sprite" parent="overlay"]
+modulate = Color( 0.482353, 0.494118, 0.870588, 1 )
+position = Vector2( 800, 672 )
+texture = SubResource( 13 )
+
+[node name="Tubes6" type="Label" parent="overlay"]
+margin_left = 832.0
+margin_top = 576.0
+margin_right = 1100.0
+margin_bottom = 640.0
+custom_fonts/font = SubResource( 6 )
+text = "chopstick = sushi"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="angry" type="Sprite" parent="overlay"]
+position = Vector2( 800, 672 )
+texture = ExtResource( 16 )
+
+[node name="Tubes7" type="Label" parent="overlay"]
+margin_left = 832.0
+margin_top = 640.0
+margin_right = 1100.0
+margin_bottom = 704.0
+custom_fonts/font = SubResource( 6 )
+text = "cloud = angry"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Escape" type="Label" parent="."]
+margin_left = 896.0
+margin_right = 1245.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 6 )
+text = "Esc to show/hide menu"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Five" type="Label" parent="."]
+visible = false
+margin_left = 320.0
+margin_top = 704.0
+margin_right = 989.0
+margin_bottom = 768.0
+custom_fonts/font = SubResource( 6 )
+text = "Five Stars! Yeah! Now you can stop playing :)"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="timeout" from="debugSpawn" to="." method="_on_debugSpawn_timeout"]
+[connection signal="timeout" from="tubeMoveTimer" to="." method="_on_tubeMoveTimer_timeout"]
+[connection signal="timeout" from="doorTimers/one" to="." method="_on_one_timeout"]
+[connection signal="timeout" from="doorTimers/two" to="." method="_on_two_timeout"]
+[connection signal="timeout" from="doorTimers/three" to="." method="_on_three_timeout"]
+[connection signal="timeout" from="doorTimers/four" to="." method="_on_four_timeout"]

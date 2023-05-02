@@ -60,7 +60,11 @@ var switchRot = {
 
 var tileVecHashToSwitchLetter = {}
 
+var tubeHoldLocations = {}
 var tubeSpawnLocations = []
+var tubeHoldNumberToHash = []
+var tubeHashToNumber = {}
+var tubeHold = {}
 
 # starting from endMarker tile contains pointers to previous tiles
 # {tileVecHash: [tileVec, ...]}
@@ -74,12 +78,21 @@ var tubeTweenCount = 0
 
 var shopLocations = {}
 
-var reviewScore = 0.5
+var reviewScore = 0
+
+var doorTimers = []
+
+var doorFreeze = [false, false, false, false]
+
+var tubeSpeed = 3
 
 func _ready():
 	rng.randomize()
 	
 	calculateTubeFlow()
+	
+	# Boost off begining
+	leaveReview(0.5)
 	
 	switches["q"] = $switches/qSwitch
 	switches["w"] = $switches/wSwitch
@@ -91,6 +104,11 @@ func _ready():
 	switches["d"] = $switches/dSwitch
 	switches["f"] = $switches/fSwitch
 
+	doorTimers.push_back($doorTimers/one)
+	doorTimers.push_back($doorTimers/two)
+	doorTimers.push_back($doorTimers/three)
+	doorTimers.push_back($doorTimers/four)
+
 	for s in switches:
 		var switchTileVecHash = hashTile(posToTile(switches[s].position))
 		tileVecHashToSwitchLetter[switchTileVecHash] = switches[s]
@@ -101,7 +119,8 @@ func _ready():
 		$shopLocations/wash,
 		$shopLocations/review,
 		$shopLocations/sushi,
-		$shopLocations/burger
+		$shopLocations/burger,
+		$shopLocations/endMarker
 	]
 	
 	for s in shops:
@@ -127,25 +146,41 @@ func _ready():
 	tubeSpawnLocations.append($tubeSpawn/three)
 	tubeSpawnLocations.append($tubeSpawn/four)
 	
+	var count = 0
+	for t in tubeSpawnLocations:
+		var tubeHash = hashTile(posToTile(t.position) + Vector2(0, 3))
+		tubeHoldLocations[tubeHash] = true
+		tubeHold[tubeHash] = true
+		tubeHoldNumberToHash.push_back(tubeHash)
+		tubeHashToNumber[tubeHash] = count
+		count += 1
+	
+	for i in range(4):
+		$doors.doorChange(i, true)
+	
 	spawnTube(1)
 	
 	tubeMove()
 	$debugSpawn.start()
 
 func _process(_delta):
-	
+
 	if Input.is_action_just_pressed("1"):
-		pass
-	
+		tubeHold[tubeHoldNumberToHash[0]] = false
+		$doors.doorChange(0, false)
+
 	if Input.is_action_just_pressed("2"):
-		pass
+		tubeHold[tubeHoldNumberToHash[1]] = false
+		$doors.doorChange(1, false)
 
 	if Input.is_action_just_pressed("3"):
-		pass
-		
+		tubeHold[tubeHoldNumberToHash[2]] = false
+		$doors.doorChange(2, false)
+
 	if Input.is_action_just_pressed("4"):
-		pass
-		
+		tubeHold[tubeHoldNumberToHash[3]] = false
+		$doors.doorChange(3, false)
+
 	if Input.is_action_just_pressed("q"):
 		toggle("q")
 
@@ -278,11 +313,26 @@ func getWaterFacingDir(tileVec):
 
 func leaveReview(value):
 	reviewScore += value
-	# TODO - update review UI
+	reviewScore = clamp(reviewScore, 0, 5)
+	if reviewScore == 5:
+		$Five.visible = true
+	$review.updateReview(reviewScore)
 
 func tubeMove():
 	var tubeOrder = getTubeOrder()
 	for tubeHash in tubeOrder:
+
+		if tubeHash in tubeHoldLocations:
+
+			if tubeHold[tubeHash]:
+				continue
+
+			else:
+				tubeHold[tubeHash] = true
+				var doorNumber = tubeHashToNumber[tubeHash]
+				doorTimers[doorNumber].start()
+				doorFreeze[doorNumber] = true
+
 		var tubeTileVec = unHashTile(tubeHash)
 		var facingDir = getWaterFacingDir(tubeTileVec)
 		var nextTileVec = tubeTileVec + facingDir
@@ -294,12 +344,23 @@ func tubeMove():
 			tubeTweenCount += 1
 			
 			if tubeHash in shopLocations:
+				if shopLocations[tubeHash] == "endMarker":
+					tube.queue_free()
+					tubeLocations.erase(nextTileVecHash)
+					tubeTweenCount -= 1
+					
 				tube.visit(shopLocations[tubeHash])
 
 			tube.move(
 				tileToPos(tubeTileVec),
 				tileToPos(nextTileVec)
 			)
+
+	if tubeTweenCount == 0:
+		$tubeMoveTimer.start()
+
+func _on_tubeMoveTimer_timeout():
+	tubeMove()
 
 func _tube_tween_completed():
 	tubeTweenCount -= 1
@@ -345,5 +406,25 @@ func _on_debugSpawn_timeout():
 	rng.randomize()
 	var lst = [1, 2, 3, 4]
 	lst = shuffleList(lst)
-	for i in range(rng.randi_range(0, 4)):
+	for i in range(rng.randi_range(0, 2)):
 		spawnTube(lst[i])
+
+
+func _on_one_timeout():
+	$doors.doorChange(0, true)
+	doorFreeze[0] = false
+
+
+func _on_two_timeout():
+	$doors.doorChange(1, true)
+	doorFreeze[1] = false
+
+
+func _on_three_timeout():
+	$doors.doorChange(2, true)
+	doorFreeze[2] = false
+
+
+func _on_four_timeout():
+	$doors.doorChange(3, true)
+	doorFreeze[3] = false

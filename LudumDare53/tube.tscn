@@ -3,31 +3,31 @@
 [ext_resource path="res://tube.gd" type="Script" id=1]
 [ext_resource path="res://img/cats/anger.png" type="Texture" id=2]
 
-[sub_resource type="StreamTexture" id=2]
+[sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/tube.png-bac7ac5380ff2fcd086446d42a582f3b.stex"
 
-[sub_resource type="StreamTexture" id=3]
+[sub_resource type="StreamTexture" id=2]
 load_path = "res://.import/cat0.png-e48a3b0b56d2be2f266268bac663361d.stex"
 
-[sub_resource type="StreamTexture" id=4]
+[sub_resource type="StreamTexture" id=3]
 load_path = "res://.import/cat1.png-e06d3709d31c305b2564fd166ba4443e.stex"
 
-[sub_resource type="StreamTexture" id=5]
+[sub_resource type="StreamTexture" id=4]
 load_path = "res://.import/cat2.png-957c6e3b08b072b9abe56d9bddda22fd.stex"
 
-[sub_resource type="StreamTexture" id=6]
+[sub_resource type="StreamTexture" id=5]
 load_path = "res://.import/groom.png-b4b8b505f7d331b41ed5662593285c84.stex"
 
-[sub_resource type="StreamTexture" id=7]
+[sub_resource type="StreamTexture" id=6]
 load_path = "res://.import/dirt.png-90d58507b5b8eb2ac78c41c3d8cce365.stex"
 
-[sub_resource type="StreamTexture" id=8]
+[sub_resource type="StreamTexture" id=7]
 load_path = "res://.import/3dglasses.png-0ba6a46e2e5c5b301246587b35392dfe.stex"
 
-[sub_resource type="StreamTexture" id=9]
+[sub_resource type="StreamTexture" id=8]
 load_path = "res://.import/burger.png-67f9aeace2634d6f651f5e86e350804c.stex"
 
-[sub_resource type="StreamTexture" id=10]
+[sub_resource type="StreamTexture" id=9]
 load_path = "res://.import/chopstick.png-1dd2fddaee885cb1d6b051bd9c390522.stex"
 
 [node name="tube" type="Node2D"]
@@ -36,43 +36,45 @@ script = ExtResource( 1 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="tubeSprite" type="Sprite" parent="."]
+modulate = Color( 0.482353, 0.494118, 0.870588, 1 )
 position = Vector2( 0.374573, 0 )
-texture = SubResource( 2 )
+texture = SubResource( 1 )
 
 [node name="cat0" type="Sprite" parent="."]
 visible = false
 modulate = Color( 0.32549, 0.32549, 0.32549, 1 )
-texture = SubResource( 3 )
+texture = SubResource( 2 )
 
 [node name="cat1" type="Sprite" parent="."]
 visible = false
 modulate = Color( 0.32549, 0.32549, 0.32549, 1 )
-texture = SubResource( 4 )
+texture = SubResource( 3 )
 
 [node name="cat2" type="Sprite" parent="."]
 visible = false
 modulate = Color( 0.32549, 0.32549, 0.32549, 1 )
-texture = SubResource( 5 )
+texture = SubResource( 4 )
 
 [node name="groom" type="Sprite" parent="."]
 visible = false
-texture = SubResource( 6 )
+modulate = Color( 0.32549, 0.32549, 0.32549, 1 )
+texture = SubResource( 5 )
 
 [node name="dirt" type="Sprite" parent="."]
 visible = false
-texture = SubResource( 7 )
+texture = SubResource( 6 )
 
 [node name="glasses" type="Sprite" parent="."]
 visible = false
-texture = SubResource( 8 )
+texture = SubResource( 7 )
 
 [node name="burger" type="Sprite" parent="."]
 visible = false
-texture = SubResource( 9 )
+texture = SubResource( 8 )
 
 [node name="chopstick" type="Sprite" parent="."]
 visible = false
-texture = SubResource( 10 )
+texture = SubResource( 9 )
 
 [node name="angry" type="Sprite" parent="."]
 visible = false

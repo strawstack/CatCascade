@@ -10,11 +10,12 @@ var isAngry = false
 
 var rng = RandomNumberGenerator.new()
 
-var tubeSpeed = 2 # 4
+var tubeSpeed = null # get from gc
 
 var gc
 func _ready():
 	gc = get_tree().get_root().get_node("main")
+	tubeSpeed = gc.tubeSpeed
 	rng.randomize()
 
 func move(fromVec, toVec):
@@ -27,7 +28,7 @@ func move(fromVec, toVec):
 	tween.start()
 
 func feelHappy():
-	print("feelHappy")
+	pass
 
 func feelAngry():
 	isAngry = true
@@ -91,15 +92,15 @@ func giveReview():
 	elif satis and not isAngry:
 		gc.leaveReview(0.5)
 
-func setCatType(catNumber, wantsWashParam, wantsMovieParam, wantsBurgerParam, wantsSushiParam):
+func setCatType(catNumberParam, wantsWashParam, wantsMovieParam, wantsBurgerParam, wantsSushiParam):
 	
 	# wantsGroom is only for cat0
 	wantsGroom  = false
-	if catNumber == 0 and rng.randi_range(0, 2) == 0:
+	if catNumberParam == 0 and rng.randi_range(0, 2) == 0:
 		wantsGroom  = true
 		$groom.visible = true
 	
-	catNumber   = catNumber
+	catNumber   = catNumberParam
 	wantsWash   = wantsWashParam
 	wantsMovie  = wantsMovieParam
 	wantsBurger = wantsBurgerParam
